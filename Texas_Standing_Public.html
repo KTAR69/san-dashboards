@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Texas Standing — Public Instrument · TAR Inc. ▽</title>
+<style>
+:root{--paper:#fafbfc;--ink:#16202b;--navy:#14283c;--steel:#42607c;--line:#d5dce3;--accent:#0a6a4a;--gold:#8a6d1f;--card:#fff}
+*{box-sizing:border-box}
+body{margin:0;font-family:'Segoe UI',-apple-system,Roboto,Arial,sans-serif;background:var(--paper);color:var(--ink);line-height:1.55}
+.mast{background:var(--navy);color:#fff;padding:16px 26px}
+.mast h1{margin:0;font-size:20px}
+.mast h1 .mark{color:#e8c96a;margin-right:8px}
+.mast .sub{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#9db4c8;margin-top:4px}
+.wrap{max-width:980px;margin:0 auto;padding:22px 26px}
+.intro{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:6px;padding:14px 18px;font-size:13.5px;margin-bottom:22px}
+h2{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--steel);border-bottom:1px solid var(--line);padding-bottom:6px;margin:26px 0 14px;font-weight:600}
+.inst{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:14px}
+.card{background:var(--card);border:1px solid var(--line);border-top:4px solid var(--gold);border-radius:6px;padding:16px 18px}
+.card h3{margin:0 0 8px;font-size:14.5px;color:var(--navy)}
+.card li{font-size:12.5px;margin-bottom:7px}
+.card ul{margin:0;padding-left:18px}
+.card .src{font-size:11px;color:var(--steel);margin-top:8px}
+.card .src a{color:var(--accent);text-decoration:none;border-bottom:1px dotted var(--accent)}
+.timeline{position:relative;margin:14px 0 6px;padding-left:24px;border-left:3px solid var(--line)}
+.tl{position:relative;margin-bottom:16px;background:var(--card);border:1px solid var(--line);border-radius:6px;padding:10px 14px}
+.tl::before{content:"";position:absolute;left:-31px;top:14px;width:11px;height:11px;border-radius:50%;background:var(--gold);border:2px solid #fff;box-shadow:0 0 0 2px var(--gold)}
+.tl.done::before{background:var(--accent);box-shadow:0 0 0 2px var(--accent)}
+.tl .d{font-size:10.5px;letter-spacing:1.2px;text-transform:uppercase;color:var(--steel);font-weight:600}
+.tl h3{margin:3px 0 4px;font-size:13.5px;color:var(--navy)}
+.tl p{margin:0;font-size:12px}
+.obs{background:linear-gradient(135deg,#f4f1e8,#eef2f5);border:1px solid var(--line);border-radius:6px;padding:14px 18px;font-size:13px;margin:22px 0}
+.foot{border-top:1px solid var(--line);margin-top:26px;padding:14px 0 24px;font-size:10.5px;color:#7a8a98;display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px}
+/* ===== SAN Interactive Kit ===== */
+body{transition:background .9s ease,color .9s ease}
+body.mirror{--paper:#070f16;--ink:#d8e4ee;--card:#0e1c28;--line:#1f3448;--steel:#7fa3c0;--accent:#3ecf95;--gold:#e0b04f}
+@keyframes gradShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+.mast{position:relative;z-index:2;background-image:linear-gradient(120deg,#14283c,#1d3a54,#2a2a4e,#14283c);background-size:300% 300%;animation:gradShift 18s ease infinite}
+body.mirror .mast{background-image:linear-gradient(120deg,#050b12,#0d2033,#1a1430,#050b12);animation:gradShift 14s ease infinite}
+body.mirror .obs{background:#0e1c28}
+.mirror-btn{position:fixed;top:14px;right:18px;z-index:50;background:rgba(20,40,60,.55);backdrop-filter:blur(4px);border:1px solid rgba(232,201,106,.6);color:#e8c96a;border-radius:6px;padding:8px 14px;font-size:11.5px;letter-spacing:1px;cursor:pointer}
+.ticker{position:relative;z-index:2;background:var(--navy);border-bottom:2px solid var(--gold);overflow:hidden;white-space:nowrap}
+body.mirror .ticker{background:#04090f}
+.tk-track{display:inline-block;padding:7px 0;animation:tkScroll 40s linear infinite}
+.ticker:hover .tk-track{animation-play-state:paused}
+@keyframes tkScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.tk{display:inline-block;margin:0 26px;font-size:12px;color:#cfe0ee;letter-spacing:.4px}
+.tk b{color:#e8c96a}.tk .cd{color:#e07a5f;font-weight:600}
+#perc{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:0;transition:opacity 1.2s}
+body.mirror #perc{opacity:1}
+.wrap{position:relative;z-index:1}
+.tk-clock{position:absolute;right:0;top:0;bottom:0;display:flex;align-items:center;padding:0 14px;background:#0b1723;font-size:11px;color:#5dd6a2;font-weight:700;letter-spacing:1px;border-left:1px solid rgba(232,201,106,.4);z-index:3}
+.depth{display:none;margin-top:8px;padding:8px 12px;border-left:3px solid #e07a5f;background:rgba(224,122,95,.10);font-size:12px;color:var(--ink);border-radius:0 4px 4px 0}
+.depth::before{content:"DEPTH READ · MIRROR SIDE ONLY → ";font-size:9.5px;letter-spacing:1px;font-weight:700;color:#e07a5f;display:block;margin-bottom:3px}
+body.mirror .depth{display:block}
+.surf{display:block}
+body.mirror .surf{display:none}
+.track{background:rgba(127,163,192,.15);border-radius:4px;overflow:hidden;height:26px;margin-top:8px}
+.fill{height:100%;background:linear-gradient(90deg,#8a6d1f,#e0b04f);color:#14202b;font-size:11px;font-weight:700;display:flex;align-items:center;padding-left:10px;white-space:nowrap}
+.barnote{font-size:10.5px;color:var(--steel);margin-top:6px;text-align:right}
+.legal{flex-basis:100%;font-size:9.5px;color:#6a7a88;line-height:1.6;margin-top:8px}
+.legal a{color:var(--accent)}
+@media (prefers-reduced-motion: reduce){.mast,.tk-track{animation:none!important}}
+.cds{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin-bottom:8px}
+.cdc{background:var(--card);border:1px solid var(--line);border-top:4px solid var(--gold);border-radius:6px;padding:12px 16px;text-align:center}
+.cdc .lbl{font-size:11px;letter-spacing:1.4px;text-transform:uppercase;color:var(--steel);font-weight:600}
+.cdc .num{font-size:30px;font-weight:700;color:var(--gold);margin:4px 0;font-variant-numeric:tabular-nums}
+.cdc .what{font-size:12px;color:var(--ink)}
+</style>
+</head>
+<body class="mirror">
+<div class="mast">
+  <h1><span class="mark">★</span>Texas Standing</h1>
+  <div class="sub">The Home-State Instruments · Public Record · v1.1 · Live surface</div>
+</div>
+<button class="mirror-btn" id="mirrorBtn" onclick="crossMirror()" aria-label="Switch between surface and mirror views">⇄ Surface Side</button>
+<canvas id="perc"></canvas>
+<div class="ticker"><div class="tk-track" id="tkTrack"></div><div class="tk-clock" id="tkClock">--:--:-- CT</div></div>
+<div class="wrap">
+
+<div class="intro"><strong>Why a Texas board:</strong> while national and bloc-level monetary moves take years, one state is fielding live instruments across every asset class at once — an exchange, a state bitcoin reserve, a bullion depository, and a hard-asset digital rail. Whatever your read on the future of money, the nearest working laboratory is Texas. Public record, sourced, updated on milestones.</div>
+
+<h2>Clocks running</h2>
+<div class="cds">
+  <div class="cdc"><div class="lbl">Specie Rail</div><div class="num" data-cd="2026-09-01T00:00:00-05:00">—</div><div class="what">HB 1056 goes effective</div></div>
+  <div class="cdc"><div class="lbl">Exchange · ETPs</div><div class="num" data-cd="2026-08-15T00:00:00-05:00">—</div><div class="what">TXSE Q3 ETP window (midpoint)</div></div>
+  <div class="cdc"><div class="lbl">Exchange · Listings</div><div class="num" data-cd="2026-10-01T00:00:00-05:00">—</div><div class="what">TXSE Q4 corporate-listings window</div></div>
+</div>
+
+<h2>The three instruments</h2>
+<div class="inst">
+  <div class="card"><h3>Texas Stock Exchange (TXSE)</h3><ul>
+    <li>Began trading July 6, 2026 — the first well-funded new U.S. national exchange launch in decades; $275M backing incl. BlackRock and Citadel Securities.</li>
+    <li>Phased rollout: all NMS symbols through July · ETPs Q3 · corporate listings Q4 · IPOs 2027.</li>
+  </ul><div class="src"><a href="https://www.txse.com/">TXSE</a> · <a href="https://www.texastribune.org/2026/07/03/texas-stock-exchange-launch-trading/">Texas Tribune</a></div></div>
+  <div class="card"><h3>Texas Strategic Bitcoin Reserve (SB 21)</h3><ul>
+    <li>Signed June 2025; a special fund held OUTSIDE the state treasury, administered by the Comptroller of Public Accounts (fund #1018).</li>
+    <li>Statutory filter: eligible assets require ≥$500B average market cap over 24 months — a network-coin standard written into state law.</li>
+  </ul><div class="src"><a href="https://fmcpa.cpa.state.tx.us/fiscalmoa/fund.jsp?num=1018">Comptroller Manual of Accounts</a> · <a href="https://legiscan.com/TX/text/SB21/id/3152029">SB 21 text</a></div></div>
+  <div class="card"><h3>Bullion Depository + HB 1056</h3><ul>
+    <li>The first state-run precious-metals depository in the U.S. custodies the reserve behind it.</li>
+    <li>HB 1056: gold and silver specie restored as legal tender, spendable through a depository-backed digital currency — effective September 1, 2026.</li>
+  </ul><div class="src"><a href="https://capitol.texas.gov/BillLookup/History.aspx?LegSess=89R&Bill=HB1056">HB 1056 (Texas Legislature)</a></div></div>
+</div>
+
+<h2>The picture — TXSE rollout progress</h2>
+<div style="background:var(--card);border:1px solid var(--line);border-radius:6px;padding:14px 16px;margin-bottom:8px">
+  <div class="track"><div class="fill" style="width:25%">Phase 1 of 4 — trading live</div></div>
+  <div class="barnote">symbols (done) → ETPs Q3 → listings Q4 → IPOs 2027 · as of Jul 10, 2026</div>
+</div>
+
+<h2>Milestone timeline</h2>
+<!-- TEXAS-TIMELINE-ANCHOR: new milestones insert directly below this line, newest first -->
+<div class="timeline">
+  <div class="tl done"><div class="d">2026-07-06 · Complete</div><h3>TXSE trading begins</h3><p>Members-first open; national symbols phasing in through the month.</p></div>
+  <div class="tl"><div class="d">2026 Q3 · Upcoming</div><h3>TXSE exchange-traded products</h3><p>Watch whether any first ETPs are digital-asset products — a telling square.</p></div>
+  <div class="tl"><div class="d">2026-09-01 · Upcoming</div><h3>HB 1056 effective — the digital specie rail goes live</h3><p>A state-scale test of hard-asset digital currency. Go-live mechanics and first volumes are the read.</p></div>
+  <div class="tl"><div class="d">2026 Q4 · Upcoming</div><h3>TXSE corporate listings</h3><p>The venue matures; first movers reveal the exchange's early identity.</p></div>
+  <div class="tl"><div class="d">2027 · Horizon</div><h3>First TXSE IPOs</h3><p>The full lifecycle completes.</p></div>
+</div>
+
+<div class="obs"><span class="surf"><strong>The observation this board exists to test:</strong> one state currently holds network-coin reserves, physical gold, and a live digital hard-asset rail — while prohibiting none of the competing classes. That's a diversified monetary posture no national government has attempted. Whether it's foresight or coincidence is what the milestones will tell us.</span>
+<div class="depth">The instrument to watch isn't the exchange — it's the depository rail. Exchanges move paper claims; the rail moves settlement. September 1 is the only date on this page that changes architecture instead of venue.</div></div>
+
+<div class="foot">
+  <span>▽ T.A. Resendez Incorporated · Texas Standing · public record, sourced</span>
+  <span>Native Texan coverage from inside the fence line · Bridging the intertwined worlds.</span>
+  <div class="legal">Informational and educational only — not investment, legal, or tax advice, and no recommendation to buy or sell any asset. Linked sources belong to their publishers. Corrections are made in place and noted. Baseline data: July 10, 2026. Spot an error? <a href="https://thesubstratereport.substack.com">Tell us</a>.</div>
+</div>
+</div>
+<script>
+function crossMirror(){document.body.classList.toggle('mirror');document.getElementById('mirrorBtn').textContent=document.body.classList.contains('mirror')?'⇄ Surface Side':'⇄ Mirror Side — depth reads';}
+const cv=document.getElementById('perc'),cx=cv.getContext('2d');const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;let bubbles=[];
+function sizeCv(){cv.width=innerWidth;cv.height=innerHeight}sizeCv();addEventListener('resize',sizeCv);
+function spawn(){return{x:Math.random()*cv.width,y:cv.height+20,r:2+Math.random()*7,s:.25+Math.random()*.8,w:Math.random()*6,a:.10+Math.random()*.22}}
+for(let i=0;i<26;i++){const b=spawn();b.y=Math.random()*cv.height;bubbles.push(b)}
+(function tick(){cx.clearRect(0,0,cv.width,cv.height);
+if(document.body.classList.contains('mirror')&&!RM){bubbles.forEach(b=>{b.y-=b.s;b.w+=.02;b.x+=Math.sin(b.w)*.4;if(b.y<-20)Object.assign(b,spawn());
+const g=cx.createRadialGradient(b.x,b.y,0,b.x,b.y,b.r);g.addColorStop(0,'rgba(240,150,70,'+b.a+')');g.addColorStop(1,'rgba(240,150,70,0)');cx.fillStyle=g;cx.beginPath();cx.arc(b.x,b.y,b.r,0,7);cx.fill();});}
+requestAnimationFrame(tick);})();
+function pad(n){return String(n).padStart(2,'0')}
+function cds(){document.querySelectorAll('[data-cd]').forEach(el=>{const t=new Date(el.dataset.cd)-Date.now();
+if(t<=0){el.textContent='LIVE';return}
+const d=Math.floor(t/864e5),h=Math.floor(t%864e5/36e5),m=Math.floor(t%36e5/6e4),s=Math.floor(t%6e4/1e3);el.textContent=d+'d '+pad(h)+':'+pad(m)+':'+pad(s);});
+const c=document.getElementById('tkClock');if(c)c.textContent=new Date().toLocaleTimeString('en-US',{timeZone:'America/Chicago',hour12:false})+' CT';}
+cds();setInterval(cds,1000);
+function tkRender(){const t2=new Date('2026-09-01T00:00:00-05:00')-Date.now(),d2=Math.max(0,Math.floor(t2/864e5)),h2=Math.floor((t2%864e5)/36e5);
+let items=`<span class="tk"><b>TXSE</b> trading LIVE since Jul 6</span><span class="tk"><span class="cd">⏱ SPECIE RAIL ${d2}d ${pad(h2)}h</span></span><span class="tk"><b>TX SBR</b> Comptroller fund #1018 · ≥$500B statutory filter</span><span class="tk"><b>Bullion Depository</b> first state-run in the U.S.</span><span class="tk">Three instruments, one state, none banned ▽</span>`;
+document.getElementById('tkTrack').innerHTML=items+items;}
+tkRender();setInterval(tkRender,30000);
+document.querySelectorAll('.wrap a').forEach(a=>{a.target='_blank';a.rel='noopener'});
+</script>
+</body>
+</html>

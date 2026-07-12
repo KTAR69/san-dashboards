@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Radar rides FREE as the open-range sample (Troy ruling July 10) — indexable by design; hub + other instruments stay noindex -->
+<meta name="description" content="SAN Radar — a live professional watch surface for the monetary, infrastructure, identity, and machine-language board. Beeps only. No noise.">
+<meta property="og:title" content="SAN Radar — Live Watch Surface ▽">
+<meta property="og:description" content="Beeps only. No noise. Live clocks on the July 18 rule text and the Sept 1 Texas specie rail — dated, sourced, checkable.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SAN Radar — Live Watch Surface ▽">
+<meta name="twitter:description" content="Beeps only. No noise. Every claim carries its sources.">
+<title>SAN Radar — Public Instrument · TAR Inc. ▽</title>
+<style>
+:root{--paper:#fafbfc;--ink:#16202b;--navy:#14283c;--steel:#42607c;--line:#d5dce3;--accent:#0a6a4a;--gold:#8a6d1f;--rust:#8a3a2a;--card:#fff;--chip:#eef2f5}
+*{box-sizing:border-box}
+body{margin:0;font-family:'Segoe UI',-apple-system,Roboto,Arial,sans-serif;background:var(--paper);color:var(--ink);line-height:1.55;transition:background .9s ease,color .9s ease}
+/* ===== MIRROR SIDE (Cross the Mirror) ===== */
+body.mirror{--paper:#070f16;--ink:#d8e4ee;--card:#0e1c28;--line:#1f3448;--chip:#13242f;--steel:#7fa3c0;--accent:#3ecf95;--gold:#e0b04f;--rust:#e07a5f}
+body.mirror .mast{background:linear-gradient(120deg,#050b12,#0d2033,#1a1430,#050b12);background-size:300% 300%;animation:gradShift 14s ease infinite}
+body.mirror tr:nth-child(even) td{background:#0b1723}
+/* ===== GRADIENT SHIFT masthead (both sides) ===== */
+@keyframes gradShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+.mast{position:relative;z-index:2;background:linear-gradient(120deg,#14283c,#1d3a54,#2a2a4e,#14283c);background-size:300% 300%;animation:gradShift 18s ease infinite;color:#fff;padding:16px 26px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+.mast h1{margin:0;font-size:20px;display:flex;align-items:center;gap:10px}
+.mast .sub{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#9db4c8;margin-top:4px}
+/* radar sweep icon */
+.sweep{width:30px;height:30px;border-radius:50%;border:2px solid #e8c96a;position:relative;overflow:hidden;flex:none}
+.sweep::before{content:"";position:absolute;inset:0;background:conic-gradient(from 0deg,rgba(232,201,106,.85),transparent 70deg);animation:spin 3.5s linear infinite}
+.sweep::after{content:"";position:absolute;left:50%;top:50%;width:4px;height:4px;margin:-2px;border-radius:50%;background:#e8c96a}
+@keyframes spin{to{transform:rotate(360deg)}}
+.mirror-btn{background:rgba(255,255,255,.08);border:1px solid rgba(232,201,106,.6);color:#e8c96a;border-radius:6px;padding:8px 16px;font-size:12px;letter-spacing:1px;cursor:pointer;transition:all .3s}
+.mirror-btn:hover{background:rgba(232,201,106,.18)}
+/* ===== TICKER ===== */
+.ticker{position:relative;z-index:2;background:var(--navy);border-bottom:2px solid var(--gold);overflow:hidden;white-space:nowrap}
+body.mirror .ticker{background:#04090f}
+.tk-track{display:inline-block;padding:7px 0;animation:tkScroll 40s linear infinite}
+.ticker:hover .tk-track{animation-play-state:paused}
+@keyframes tkScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.tk{display:inline-block;margin:0 26px;font-size:12px;color:#cfe0ee;letter-spacing:.4px}
+.tk b{color:#e8c96a}.tk .up{color:#5dd6a2}.tk .cd{color:#e07a5f;font-weight:600}
+/* ===== percolation canvas ===== */
+#perc{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:0;transition:opacity 1.2s}
+body.mirror #perc{opacity:1}
+.wrap{position:relative;z-index:1;max-width:980px;margin:0 auto;padding:22px 26px}
+.tk-clock{position:absolute;right:0;top:0;bottom:0;display:flex;align-items:center;padding:0 14px;background:#0b1723;font-size:11px;color:#5dd6a2;font-weight:700;letter-spacing:1px;border-left:1px solid rgba(232,201,106,.4);z-index:3}
+.depth{display:none;margin-top:8px;padding:8px 12px;border-left:3px solid #e07a5f;background:rgba(224,122,95,.10);font-size:12px;color:var(--ink);border-radius:0 4px 4px 0}
+.depth::before{content:"DEPTH READ · MIRROR SIDE ONLY → ";font-size:9.5px;letter-spacing:1px;font-weight:700;color:#e07a5f;display:block;margin-bottom:3px}
+body.mirror .depth{display:block}
+.surf{display:block}
+body.mirror .surf{display:none}
+.bars{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px;margin-bottom:8px}
+.barbox{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:14px 16px}
+.barbox .bl{font-size:11.5px;letter-spacing:1px;text-transform:uppercase;color:var(--steel);font-weight:600;margin-bottom:10px}
+.track{background:rgba(127,163,192,.15);border-radius:4px;overflow:hidden;height:26px;position:relative}
+.fill{height:100%;background:linear-gradient(90deg,#b04a35,#e07a5f);color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;padding-left:10px;white-space:nowrap}
+.fill.f2{background:linear-gradient(90deg,#2d4a66,#42607c)}
+.barbox .br{font-size:10.5px;color:var(--steel);margin-top:6px;text-align:right}
+.legal{flex-basis:100%;font-size:9.5px;color:#6a7a88;line-height:1.6;margin-top:8px}
+.legal a{color:var(--accent)}
+@media (prefers-reduced-motion: reduce){.mast,.tk-track,.sweep::before{animation:none!important}.beep,.sense{transition:none!important}.beep:hover,.sense:hover{transform:none!important}}
+.intro{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:6px;padding:14px 18px;font-size:13.5px;margin-bottom:22px}
+h2{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--steel);border-bottom:1px solid var(--line);padding-bottom:6px;margin:26px 0 14px;font-weight:600}
+.senses{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:6px}
+.sense{font-size:11px;letter-spacing:.6px;background:var(--chip);border:1px solid var(--line);border-radius:14px;padding:5px 12px;color:var(--steel);cursor:default;transition:transform .2s}
+.sense:hover{transform:translateY(-2px)}
+.sense b{color:var(--ink)}
+.note{font-size:11px;color:var(--steel);font-style:italic;margin:6px 0 0;opacity:.8}
+/* countdown chips */
+.cds{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin-bottom:8px}
+.cdc{background:var(--card);border:1px solid var(--line);border-top:4px solid var(--rust);border-radius:6px;padding:12px 16px;text-align:center}
+.cdc .lbl{font-size:11px;letter-spacing:1.4px;text-transform:uppercase;color:var(--steel);font-weight:600}
+.cdc .num{font-size:30px;font-weight:700;color:var(--rust);margin:4px 0;font-variant-numeric:tabular-nums}
+.cdc .what{font-size:12px;color:var(--ink)}
+.beep{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:14px 18px;margin-bottom:14px;transition:transform .18s,box-shadow .18s}
+.beep:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(0,0,0,.10)}
+.beep.hot{border-left:4px solid var(--rust)}
+.beep.warm{border-left:4px solid var(--gold)}
+.beep.watch{border-left:4px solid var(--steel)}
+.beep .d{font-size:10.5px;letter-spacing:1.2px;text-transform:uppercase;color:var(--steel);font-weight:600}
+.beep .d .lvl{margin-left:8px}
+.beep.hot .lvl{color:var(--rust)}.beep.warm .lvl{color:var(--gold)}.beep.watch .lvl{color:var(--steel)}
+.beep h3{margin:5px 0 6px;font-size:15px;color:var(--ink)}
+.beep p{margin:0 0 8px;font-size:13px}
+.beep .src{font-size:11px;color:var(--steel)}
+.beep .src a{color:var(--accent);text-decoration:none;border-bottom:1px dotted var(--accent)}
+.beep .next{font-size:11.5px;color:var(--gold);margin-top:6px;font-weight:600}
+.next::before{content:"WATCHING NEXT → ";letter-spacing:1px;font-size:9.5px}
+.foot{border-top:1px solid var(--line);margin-top:26px;padding:14px 0 24px;font-size:10.5px;color:var(--steel);display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px;opacity:.85}
+</style>
+</head>
+<body class="mirror">
+<canvas id="perc"></canvas>
+<div class="mast">
+  <div>
+    <h1><span class="sweep"></span>SAN Radar</h1>
+    <div class="sub">Substrate-Aware Network · Public Instrument · v1.1 · Live surface</div>
+  </div>
+  <button class="mirror-btn" id="mirrorBtn" onclick="crossMirror()" aria-label="Switch between surface and mirror views">⇄ Surface Side</button>
+</div>
+<div class="ticker"><div class="tk-track" id="tkTrack"></div><div class="tk-clock" id="tkClock">--:--:-- CT</div></div>
+
+<div class="wrap">
+<div class="intro"><strong>What this is.</strong> A professional watch surface. The radar listens across the monetary, infrastructure, identity, and machine-language board; when something pings hard enough to matter, it lands here — dated, sourced, with what we're watching next. Beeps only. No noise.</div>
+
+<h2>Clocks running</h2>
+<div class="cds">
+  <div class="cdc"><div class="lbl">Rule Text</div><div class="num" data-cd="2026-07-18T09:00:00-05:00">—</div><div class="what">GENIUS final rules due (~Jul 18)</div></div>
+  <div class="cdc"><div class="lbl">Specie Rail</div><div class="num" data-cd="2026-09-01T00:00:00-05:00">—</div><div class="what">Texas HB 1056 goes effective (Sep 1)</div></div>
+  <div class="cdc"><div class="lbl">Exchange</div><div class="num" data-cd="2026-10-01T00:00:00-05:00">—</div><div class="what">TXSE Q4 corporate-listings window</div></div>
+</div>
+
+<h2>What the radar hears</h2>
+<div class="senses">
+  <span class="sense"><b>Bloc Rails</b> · cross-border CBDC settlement</span>
+  <span class="sense"><b>Rule Text</b> · U.S. digital-asset rulemaking</span>
+  <span class="sense"><b>Specie Rail</b> · state hard-asset digital currency</span>
+  <span class="sense"><b>Exchange</b> · TXSE rollout</span>
+  <span class="sense"><b>Rail vs Vault</b> · sovereign network-coin adoption</span>
+  <span class="sense"><b>Freeze Ledger</b> · on-chain issuer actions</span>
+  <span class="sense"><b>Member Standing</b> · institutional self-custody</span>
+  <span class="sense"><b>Creole</b> · machine-language milestones</span>
+  <span class="sense"><b>Q-Day</b> · quantum × blockchain</span>
+  <span class="sense"><b>Wetware</b> · biological compute</span>
+  <span class="sense"><b>Energy-Compute</b> · datacenter-grid couplings</span>
+  <span class="sense"><b>Public Data Rail</b> · government data on-chain</span>
+</div>
+<p class="note">The senses are named; their tuning is proprietary. Findings carry their sources — check everything.</p>
+
+<h2>The pictures</h2>
+<div class="bars">
+  <div class="barbox"><div class="bl">mBridge settlement volume by currency</div><div class="track"><div class="fill" style="width:95%">e-CNY ≈95%</div></div><div class="br">all other member currencies ≈5% · 2026 reported milestone</div></div>
+  <div class="barbox"><div class="bl">Global stablecoin universe by currency</div><div class="track"><div class="fill f2" style="width:99.8%">USD ≈99.8%</div></div><div class="br">all non-USD stablecoins ≈0.2% · as of Apr 2026 reported data</div></div>
+</div>
+
+<h2>Active beeps — newest first</h2>
+<!-- RADAR-BEEP-ANCHOR: new beeps insert directly below this line. Levels: hot / warm / watch -->
+
+<div class="beep hot"><div class="d">2026-07-18 (upcoming) <span class="lvl">● HOT — CALENDAR</span></div>
+<h3>U.S. stablecoin final rules due — the GENIUS Act regime takes shape</h3>
+<p class="surf">Implementing rules for the first comprehensive U.S. stablecoin framework are due around July 18. The provisions to read first: freeze, seize, and programmability — they define what a regulated digital dollar actually is.</p>
+<div class="src">Sources: <a href="https://www.congress.gov/bill/119th-congress/senate-bill/1582/text">GENIUS Act text</a> · <a href="https://www.federalregister.gov/documents/2026/03/02/2026-04089/implementing-the-guiding-and-establishing-national-innovation-for-us-stablecoins-act-for-the">OCC proposed rules</a></div>
+<div class="next">The final rule text itself — a full read publishes here when it lands.</div>
+<div class="depth">The tell won't be whether freeze powers exist — the statute already mandates the capability. The tell is PROCESS: who orders a freeze, how fast, with what recourse. Slow judicial process = a banking rail. Fast administrative process = something else wearing a banking rail's clothes.</div></div>
+
+<div class="beep hot"><div class="d">2026-09-01 (upcoming) <span class="lvl">● HOT — CALENDAR</span></div>
+<h3>Texas HB 1056: gold &amp; silver specie become legal tender with a state-depository-backed digital currency</h3>
+<p class="surf">A U.S. state launches a hard-asset digital transactional rail, custodied by the first state-run bullion depository in the country. If it works at state scale, the architecture argument changes for everyone.</p>
+<div class="src">Sources: <a href="https://capitol.texas.gov/BillLookup/History.aspx?LegSess=89R&Bill=HB1056">HB 1056 (Texas Legislature)</a> · <a href="https://www.bitget.com/wiki/is-gold-and-silver-legal-tender-in-texas">Analysis</a></div>
+<div class="next">Go-live mechanics and first published transaction volumes.</div>
+<div class="depth">Watch the merchant side, not the launch ceremony. A specie rail lives or dies on acceptance mechanics — if spending gold feels like a card swipe, the architecture argument is over and the copycat bills start within two sessions.</div></div>
+
+<div class="beep warm"><div class="d">2026-07-06 <span class="lvl">● WARM</span></div>
+<h3>Texas Stock Exchange began trading — first well-funded new U.S. exchange launch in decades</h3>
+<p>Phased rollout: all national symbols through July, exchange-traded products in Q3, corporate listings Q4, IPOs in 2027. $275M in backing including BlackRock and Citadel Securities.</p>
+<div class="src">Sources: <a href="https://www.txse.com/">TXSE</a> · <a href="https://www.texastribune.org/2026/07/03/texas-stock-exchange-launch-trading/">Texas Tribune</a></div>
+<div class="next">First ETP listings — and whether any are digital-asset products.</div></div>
+
+<div class="beep warm"><div class="d">Standing <span class="lvl">● WARM</span></div>
+<h3>mBridge runs sovereign: $55B+ settled, ~95% of volume in digital yuan</h3>
+<p class="surf">The cross-border CBDC platform — China, Hong Kong, Thailand, UAE, Saudi Arabia — has compounded since the BIS handed it to its members in 2024. Saudi participation puts petro-adjacent settlement on a non-dollar rail; no correspondent banking, no dollar checkpoint.</p>
+<div class="src">Sources: <a href="https://www.bis.org/about/bisih/topics/cbdc/mcbdc_bridge.htm">BIS project record</a> · <a href="https://www.tradingview.com/news/cointelegraph:9c2c921fc094b:0-china-led-cbdc-project-mbridge-tops-55b-in-cross-border-payments/">$55B coverage</a></div>
+<div class="next">New member central banks; confirmed commodity settlement.</div>
+<div class="depth">The number that matters isn't $55B — it's 95%. A multilateral platform where one currency carries nearly all volume isn't a bridge; it's a river with guest docks. Membership growth without volume diversification deepens the river, it doesn't widen the bridge.</div></div>
+
+<div class="beep warm"><div class="d">2026 Q2–Q3 <span class="lvl">● WARM</span></div>
+<h3>Q-Day lane heats up: Algorand's native post-quantum accounts and Quip Network's mainnet both approach</h3>
+<p class="surf">Algorand broadcast the first major-L1 mainnet transactions signed with Falcon-1024 (Nov 2025) and targets native post-quantum accounts ~Q3 2026. Quip Network — quantum vaults protecting existing chains with hash-based signatures, plus a quantum-classical compute layer built in consultation with D-Wave — targets mainnet ~Q2 2026. Different weapons for different ground.</p>
+<div class="src">Sources: <a href="https://algorand.co/technology/post-quantum">Algorand post-quantum</a> · <a href="https://thequantuminsider.com/2026/04/02/quip-network-launches-quantum-classical-blockchain-testnet-built-in-consultation-with-d-wave/">Quantum Insider on Quip</a> · <a href="https://quip.network/">quip.network</a></div>
+<div class="next">Quip mainnet + published signature-scheme documentation; first top-10 chain committing a migration timeline.</div>
+<div class="depth">Two different bets, easy to conflate: Algorand is securing its own chain's future; Quip is selling insurance on everyone else's past. If the quantum clock runs long, the first bet compounds quietly. If it runs short, the second market is suddenly the biggest in crypto.</div></div>
+
+<div class="beep watch"><div class="d">Standing <span class="lvl">● WATCH</span></div>
+<h3>Member standing moves bottom-up: Texas credit union members get self-custody digital assets</h3>
+<p>Credit Union of Texas members can buy, sell, and self-custody digital assets through a platform built on enterprise-grade DLT. The bridge from traditional finance is being crossed at the member level — not the fund level.</p>
+<div class="src">Sources: <a href="https://www.disruptionbanking.com/2025/10/13/credit-union-of-texas-and-banksocial-bring-self-custody-crypto-to-members/">Coverage</a> · <a href="https://banksocial.io/">banksocial.io</a></div>
+<div class="next">The next institution to go live; expansion across the credit-union network.</div></div>
+
+<div class="beep warm"><div class="d">Standing since 2025-08 <span class="lvl">● WARM</span></div>
+<h3>The oracle of record: U.S. Commerce Department publishes GDP on public blockchains</h3>
+<p class="surf">Official U.S. economic data — GDP, PCE, Real Final Sales — now streams on-chain via Chainlink and Pyth across ten-plus networks, updating on the official release calendar. The first federal agency to act as a public-blockchain data source.</p>
+<div class="src">Sources: <a href="https://blog.chain.link/united-states-department-of-commerce-macroeconomic-data/">Chainlink × Commerce announcement</a> · <a href="https://www.coindesk.com/business/2025/08/28/chainlink-to-provide-u-s-department-of-commerce-data-on-chain-for-smart-contract-use">CoinDesk</a> · <a href="https://www.finextra.com/newsarticle/46517/us-department-of-commerce-puts-economic-data-on-chain">Finextra</a></div>
+<div class="next">The template repeating — BLS employment data, EIA energy data, Treasury auction data going on-chain would confirm the pattern.</div>
+<div class="depth">Commerce didn't just publish data — it validated a role: the state as oracle. Once official statistics live on-chain, smart contracts can settle against government truth without an intermediary — and every agency that follows makes the public rail more load-bearing. The quiet question: the same government banning its own CBDC is simultaneously becoming a native data citizen of the chains it won't build rails on.</div></div>
+
+<div class="beep watch"><div class="d">Standing <span class="lvl">● WATCH</span></div>
+<h3>Machine-language milestones: agents keep getting doors out of English</h3>
+<p>Research shows agent-to-agent protocols emerging in controlled settings; engineering keeps building the escape hatch on purpose. The full argument is in our report, The First Hybrid Tongue — with four falsifiable predictions this sense now tracks.</p>
+<div class="src">Sources: <a href="https://thesubstratereport.substack.com/p/the-first-hybrid-tongue-how-web-3">The First Hybrid Tongue</a> · <a href="https://kempnerinstitute.harvard.edu/events/workshop-invented-constructed-and-emergent-languages-in-multi-agent-ai-systems/">Kempner workshop</a> · <a href="https://www.gbrl.ai/">Gibberlink</a></div>
+<div class="next">Any published test touching the four predictions.</div></div>
+
+<div class="foot">
+  <span>▽ T.A. Resendez Incorporated · SAN Radar · Public tier — findings and sources only</span>
+  <span>From the depths of the mirror side — that's how things percolate. · Bridging the intertwined worlds.</span>
+  <div class="legal">Informational and educational only — not investment, legal, or tax advice, and no recommendation to buy or sell any asset. Market prices via third-party feed (CoinGecko) and may be delayed. Linked sources belong to their publishers. Corrections are made in place and noted. Baseline data: July 10, 2026. Spot an error? <a href="https://thesubstratereport.substack.com">Tell us</a>.</div>
+</div>
+</div>
+
+<script>
+/* ===== Cross the Mirror (mirror = home side; surface hides the depth reads) ===== */
+function crossMirror(){
+  document.body.classList.toggle('mirror');
+  const b=document.getElementById('mirrorBtn');
+  b.textContent=document.body.classList.contains('mirror')?'⇄ Surface Side':'⇄ Mirror Side — depth reads';
+}
+/* ===== Percolation (mirror side): orange forms rising from the depths ===== */
+const cv=document.getElementById('perc'),cx=cv.getContext('2d');const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;let bubbles=[];
+function sizeCv(){cv.width=innerWidth;cv.height=innerHeight}sizeCv();addEventListener('resize',sizeCv);
+function spawn(){return{x:Math.random()*cv.width,y:cv.height+20,r:2+Math.random()*7,s:.25+Math.random()*.8,w:Math.random()*Math.PI*2,a:.10+Math.random()*.22}}
+for(let i=0;i<26;i++){const b=spawn();b.y=Math.random()*cv.height;bubbles.push(b)}
+(function tick(){
+  cx.clearRect(0,0,cv.width,cv.height);
+  if(document.body.classList.contains('mirror')&&!RM){
+    bubbles.forEach(b=>{
+      b.y-=b.s;b.w+=.02;b.x+=Math.sin(b.w)*.4;
+      if(b.y<-20)Object.assign(b,spawn());
+      const g=cx.createRadialGradient(b.x,b.y,0,b.x,b.y,b.r);
+      g.addColorStop(0,'rgba(240,150,70,'+b.a+')');g.addColorStop(1,'rgba(240,150,70,0)');
+      cx.fillStyle=g;cx.beginPath();cx.arc(b.x,b.y,b.r,0,7);cx.fill();
+    });
+  }
+  requestAnimationFrame(tick);
+})();
+/* ===== Live countdowns — real-time, to the second ===== */
+function pad(n){return String(n).padStart(2,'0')}
+function cds(){document.querySelectorAll('[data-cd]').forEach(el=>{
+  const t=new Date(el.dataset.cd)-Date.now();
+  if(t<=0){el.textContent='LIVE';return}
+  const d=Math.floor(t/864e5),h=Math.floor(t%864e5/36e5),m=Math.floor(t%36e5/6e4),s=Math.floor(t%6e4/1e3);
+  el.textContent=d+'d '+pad(h)+':'+pad(m)+':'+pad(s);
+});
+  const c=document.getElementById('tkClock');
+  if(c)c.textContent=new Date().toLocaleTimeString('en-US',{timeZone:'America/Chicago',hour12:false})+' CT';
+}
+cds();setInterval(cds,1000);
+/* ===== Ticker: live prices (CoinGecko public API) + clocks ===== */
+const IDS={bitcoin:'BTC',ethereum:'ETH',solana:'SOL',ripple:'XRP','hedera-hashgraph':'HBAR'};
+let px={},pxState='connecting',pxAt=null;
+function cdStr(iso){const t=new Date(iso)-Date.now();if(t<=0)return 'LIVE';
+  const d=Math.floor(t/864e5),h=Math.floor(t%864e5/36e5),m=Math.floor(t%36e5/6e4);
+  return d+'d '+pad(h)+'h '+pad(m)+'m';}
+function tkRender(){
+  let items='';
+  if(pxState==='live'){
+    items+=Object.entries(IDS).map(([id,sym])=>`<span class="tk"><b>${sym}</b> <span class="up">$${Number(px[id]).toLocaleString()}</span></span>`).join('');
+    items+=`<span class="tk"><b>PRICES</b> live · ${pxAt} · refreshes 60s</span>`;
+  } else if(pxState==='connecting'){
+    items+=`<span class="tk"><b>PRICES</b> connecting…</span>`;
+  } else {
+    items+=`<span class="tk"><b>PRICES</b> stream connects on the hosted site (local file view blocks the feed)</span>`;
+  }
+  items+=`<span class="tk"><span class="cd">⏱ GENIUS RULE TEXT ${cdStr('2026-07-18T09:00:00-05:00')}</span></span>`;
+  items+=`<span class="tk"><span class="cd">⏱ TEXAS SPECIE RAIL ${cdStr('2026-09-01T00:00:00-05:00')}</span></span>`;
+  items+=`<span class="tk"><b>mBridge</b> $55B+ settled · e-CNY ≈95% <i>(reported milestone)</i></span>`;
+  items+=`<span class="tk"><b>TXSE</b> trading LIVE — ETPs Q3</span>`;
+  items+=`<span class="tk"><b>SAN Radar</b> beeps only, no noise ▽</span>`;
+  document.getElementById('tkTrack').innerHTML=items+items; /* doubled for seamless loop */
+}
+tkRender();setInterval(tkRender,30000); /* clocks refresh even if prices never connect */
+async function prices(){try{
+  const r=await fetch('https://api.coingecko.com/api/v3/simple/price?ids='+Object.keys(IDS).join(',')+'&vs_currencies=usd');
+  const j=await r.json();let ok=false;Object.keys(IDS).forEach(k=>{if(j[k]){px[k]=j[k].usd;ok=true}});
+  if(ok){pxState='live';pxAt=new Date().toLocaleTimeString('en-US',{timeZone:'America/Chicago',hour:'2-digit',minute:'2-digit',hour12:false})+' CT'}
+  else pxState='offline';
+  tkRender();
+}catch(e){pxState='offline';tkRender();}}
+prices();setInterval(prices,60000);
+/* all source links open in a new tab — never navigate the instrument away */
+document.querySelectorAll('.wrap a').forEach(a=>{a.target='_blank';a.rel='noopener'});
+</script>
+</body>
+</html>
