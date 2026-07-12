@@ -57,6 +57,9 @@ body.mirror #perc{opacity:1}
 .legal{flex-basis:100%;font-size:9.5px;color:#6a7a88;line-height:1.6;margin-top:8px}
 .legal a{color:var(--accent)}
 .tile:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.whatsnew{position:relative;z-index:1;padding:8px 28px;font-size:11.5px;color:#e0b04f;background:rgba(224,176,79,.08);border-bottom:1px solid var(--line);letter-spacing:.3px}
+.whatsnew strong{letter-spacing:1.5px;font-size:10px;margin-right:8px}
+body.mirror{--steel:#9fc2de}
 @media (prefers-reduced-motion: reduce){.masthead,.tk-track{animation:none!important}.tile{transition:none!important}}
 </style>
 </head>
@@ -71,6 +74,8 @@ body.mirror #perc{opacity:1}
 </div>
 
 <div class="member-strip"><strong>Members &amp; subscribers:</strong> living instruments — findings and sources, updated on their stated cadence. Every claim carries its trail.</div>
+<!-- WHATS-NEW-ANCHOR: newest entry first; keep to 3 lines max, prune oldest -->
+<div class="whatsnew"><strong>WHAT'S NEW</strong> · Jul 11 — Tether Map (couplings &amp; decouplings) added to Sovereign Standing · Oracle-of-Record beep on the Radar: U.S. Commerce publishes GDP on-chain · Radar countdown clocks live on Jul 18 &amp; Sep 1</div>
 
 <div class="rail-wrap">
   <div class="rail-label">Select an instrument — click to load, expand to full screen</div>
@@ -122,8 +127,18 @@ function load(d){
   document.querySelectorAll('.tile').forEach(x=>x.classList.remove('active'));
   document.getElementById('tile-'+d.id).classList.add('active');
   vTitle.childNodes[0].nodeValue=d.title+' ';
-  if(d.src){vStatus.style.display='inline-block';viewer.innerHTML=`<iframe src="${d.src}" title="${d.title}"></iframe>`;}
+  if(d.src){vStatus.style.display='inline-block';viewer.innerHTML=`<iframe src="${d.src}" title="${d.title}"></iframe>`;
+    const f=viewer.querySelector('iframe');f.onload=syncMirror;}
   else{vStatus.style.display='none';viewer.innerHTML=`<div class="placeholder"><div class="big">${d.icon}</div><p><strong>${d.title}</strong> — instrument in final calibration. ${d.cadence}. Members are notified when it goes live.</p></div>`;}
+}
+/* one switch rules both sides of the glass: hub state propagates into the embedded instrument */
+function syncMirror(){
+  const f=viewer.querySelector('iframe'); if(!f)return;
+  try{
+    const b=f.contentDocument.body;
+    document.body.classList.contains('mirror')?b.classList.add('mirror'):b.classList.remove('mirror');
+    const btn=f.contentDocument.getElementById('mirrorBtn'); if(btn)btn.style.display='none';
+  }catch(e){/* cross-origin standalone use — instrument keeps its own button */}
 }
 function expandViewer(){
   if(!current){load(DASHBOARDS.find(d=>d.src)||DASHBOARDS[0]);}
@@ -135,7 +150,7 @@ function openTab(){
   if(current&&current.src){window.open(current.src,'_blank');}
   else{viewer.innerHTML=`<div class="placeholder"><div class="big">◐</div><p>This instrument is still in calibration — nothing to open yet. Pick a LIVE tile from the rail.</p></div>`;}
 }
-function crossMirror(){document.body.classList.toggle('mirror');document.getElementById('mirrorBtn').textContent=document.body.classList.contains('mirror')?'⇄ Surface Side':'⇄ Mirror Side';}
+function crossMirror(){document.body.classList.toggle('mirror');document.getElementById('mirrorBtn').textContent=document.body.classList.contains('mirror')?'⇄ Surface Side':'⇄ Mirror Side — depth reads';syncMirror();}
 /* percolation */
 const cv=document.getElementById('perc'),cx=cv.getContext('2d');const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;let bubbles=[];
 function sizeCv(){cv.width=innerWidth;cv.height=innerHeight}sizeCv();addEventListener('resize',sizeCv);

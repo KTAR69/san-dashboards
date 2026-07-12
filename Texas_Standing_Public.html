@@ -56,6 +56,7 @@ body.mirror #perc{opacity:1}
 body.mirror .depth{display:block}
 .surf{display:block}
 body.mirror .surf{display:none}
+body.mirror{--steel:#9fc2de} /* brighter secondary text on the mirror side */
 .track{background:rgba(127,163,192,.15);border-radius:4px;overflow:hidden;height:26px;margin-top:8px}
 .fill{height:100%;background:linear-gradient(90deg,#8a6d1f,#e0b04f);color:#14202b;font-size:11px;font-weight:700;display:flex;align-items:center;padding-left:10px;white-space:nowrap}
 .barnote{font-size:10.5px;color:var(--steel);margin-top:6px;text-align:right}
@@ -131,6 +132,7 @@ body.mirror .surf{display:none}
 </div>
 <script>
 function crossMirror(){document.body.classList.toggle('mirror');document.getElementById('mirrorBtn').textContent=document.body.classList.contains('mirror')?'⇄ Surface Side':'⇄ Mirror Side — depth reads';}
+if(window.self!==window.top){const mb=document.getElementById('mirrorBtn');if(mb)mb.style.display='none';}
 const cv=document.getElementById('perc'),cx=cv.getContext('2d');const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;let bubbles=[];
 function sizeCv(){cv.width=innerWidth;cv.height=innerHeight}sizeCv();addEventListener('resize',sizeCv);
 function spawn(){return{x:Math.random()*cv.width,y:cv.height+20,r:2+Math.random()*7,s:.25+Math.random()*.8,w:Math.random()*6,a:.10+Math.random()*.22}}

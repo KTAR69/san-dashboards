@@ -20,7 +20,7 @@ h2{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--steel)
 .pred{background:var(--card);border:1px solid var(--line);border-radius:6px;margin-bottom:14px;overflow:hidden}
 .pred .head{display:flex;justify-content:space-between;align-items:center;padding:10px 16px;background:#eef2f5;border-bottom:1px solid var(--line)}
 .pred .head h3{margin:0;font-size:13.5px;color:var(--navy)}
-.status{font-size:10px;letter-spacing:1.2px;text-transform:uppercase;font-weight:700;padding:3px 10px;border-radius:3px}
+.status{font-size:10px;letter-spacing:1.2px;text-transform:uppercase;font-weight:700;padding:3px 10px;border-radius:3px;cursor:default;user-select:none}
 .status.open{background:#e8edf2;color:var(--steel);border:1px solid var(--steel)}
 .status.testing{background:#f4ecd8;color:var(--gold);border:1px solid var(--gold)}
 .status.confirmed{background:#e2f0e9;color:var(--accent);border:1px solid var(--accent)}
@@ -61,6 +61,7 @@ body.mirror #perc{opacity:1}
 body.mirror .depth{display:block}
 .surf{display:block}
 body.mirror .surf{display:none}
+body.mirror{--steel:#9fc2de} /* brighter secondary text on the mirror side — dim ≠ disabled */
 .legal{flex-basis:100%;font-size:9.5px;color:#6a7a88;line-height:1.6;margin-top:8px}
 .legal a{color:var(--accent)}
 @media (prefers-reduced-motion: reduce){.mast,.tk-track{animation:none!important}}
@@ -94,22 +95,22 @@ body.mirror .surf{display:none}
 <h2>The four predictions</h2>
 <!-- PREDICTION-STATUS: update the .status chip and append .evlog lines as evidence arrives -->
 
-<div class="pred"><div class="head"><h3>P1 — Agent protocols will show Zipfian compression over deployment time</h3><span class="status open">OPEN</span></div>
+<div class="pred"><div class="head"><h3>P1 — Agent protocols will show Zipfian compression over deployment time</h3><span class="status open">● STANDING</span></div>
 <div class="body"><p>In any long-running multi-agent system, mean inter-agent message length falls while task throughput holds or rises.</p>
 <div class="test">Measure message-length trends in production multi-agent deployments over time. Falsified if length holds flat or grows at stable throughput.</div>
 <div class="evlog">2026-07-10 · Baseline set. No production study logged yet.</div></div></div>
 
-<div class="pred"><div class="head"><h3>P2 — Hybrid human/agent teams reach stable shorthand faster than human-only teams</h3><span class="status open">OPEN</span></div>
+<div class="pred"><div class="head"><h3>P2 — Hybrid human/agent teams reach stable shorthand faster than human-only teams</h3><span class="status open">● STANDING</span></div>
 <div class="body"><p>At equal tenure, teams working with agents converge on stable shared abbreviations sooner — one party never loses a reinforced form once it's in the medium.</p>
 <div class="test">Compare time-to-stable-abbreviation in matched-period working communications across the two team types.</div>
 <div class="evlog">2026-07-10 · Baseline set. Seeking corpora.</div></div></div>
 
-<div class="pred"><div class="head"><h3>P3 — Auditability is the brake, not the wall</h3><span class="status open">OPEN</span></div>
+<div class="pred"><div class="head"><h3>P3 — Auditability is the brake, not the wall</h3><span class="status open">● STANDING</span></div>
 <div class="body"><p>Machine-language growth tracks the autonomy agents are granted; human-readable log requirements slow it everywhere and stop it nowhere.</p>
 <div class="test">Track machine-native protocol adoption against audit-regulation timelines by jurisdiction and industry.</div>
 <div class="evlog">2026-07-10 · Baseline set. Watching agent-protocol standards and audit rules in parallel.</div></div></div>
 
-<div class="pred"><div class="head"><h3>P4 — The name-before-understanding pattern repeats</h3><span class="status testing">EVIDENCE ARRIVING</span></div>
+<div class="pred"><div class="head"><h3>P4 — The name-before-understanding pattern repeats</h3><span class="status testing">● EVIDENCE ARRIVING</span></div>
 <div class="body"><p>The agent era's human-facing vocabulary will mint words for things most speakers can't yet explain — and those words will resist translation exactly as HODL does.</p>
 <div class="test surf">Collect agent-era vocabulary entering use ahead of operational understanding; the specimen log below keeps the record.</div>
 <div class="evlog">2026-07-10 · Specimens already collecting — see log below.</div>
@@ -130,6 +131,8 @@ body.mirror .surf{display:none}
 </div>
 <script>
 function crossMirror(){document.body.classList.toggle('mirror');document.getElementById('mirrorBtn').textContent=document.body.classList.contains('mirror')?'⇄ Surface Side':'⇄ Mirror Side — depth reads';}
+/* inside the hub, the hub's mirror switch rules — hide the local one */
+if(window.self!==window.top){const mb=document.getElementById('mirrorBtn');if(mb)mb.style.display='none';}
 setInterval(()=>{const c=document.getElementById('tkClock');if(c)c.textContent=new Date().toLocaleTimeString('en-US',{timeZone:'America/Chicago',hour12:false})+' CT';},1000);
 document.querySelectorAll('.wrap a').forEach(a=>{a.target='_blank';a.rel='noopener'});
 /* percolation */
