@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>·</title>
+<style>
+html,body{margin:0;padding:0;background:transparent;overflow:hidden;height:100%}
+canvas{display:block;width:100vw;height:100vh;background:linear-gradient(120deg,#050b12,#0d2033,#1a1430,#050b12);background-size:300% 300%;animation:g 18s ease infinite}
+@keyframes g{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+@media (prefers-reduced-motion: reduce){canvas{animation:none}}
+</style>
+</head>
+<body>
+<canvas id="p"></canvas>
+<script>
+const cv=document.getElementById('p'),cx=cv.getContext('2d');
+const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+function sz(){cv.width=innerWidth;cv.height=innerHeight}sz();addEventListener('resize',sz);
+function sp(){return{x:Math.random()*cv.width,y:cv.height+15,r:2+Math.random()*6,s:.2+Math.random()*.7,w:Math.random()*6,a:.12+Math.random()*.25}}
+let B=[];for(let i=0;i<22;i++){const b=sp();b.y=Math.random()*cv.height;B.push(b)}
+(function t(){cx.clearRect(0,0,cv.width,cv.height);
+if(!RM){B.forEach(b=>{b.y-=b.s;b.w+=.02;b.x+=Math.sin(b.w)*.4;if(b.y<-15)Object.assign(b,sp());
+const g=cx.createRadialGradient(b.x,b.y,0,b.x,b.y,b.r);g.addColorStop(0,'rgba(240,150,70,'+b.a+')');g.addColorStop(1,'rgba(240,150,70,0)');
+cx.fillStyle=g;cx.beginPath();cx.arc(b.x,b.y,b.r,0,7);cx.fill();});}
+requestAnimationFrame(t);})();
+</script>
+</body>
+</html>
