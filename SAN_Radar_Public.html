@@ -34,6 +34,8 @@ body.mirror tr:nth-child(even) td{background:#0b1723}
 .mirror-btn{position:fixed;right:18px;bottom:18px;z-index:9;background:rgba(10,20,30,.88);border:1px solid rgba(232,201,106,.7);color:#e8c96a;border-radius:20px;padding:10px 16px;font-size:12px;letter-spacing:1px;cursor:pointer;transition:all .3s;box-shadow:0 4px 16px rgba(0,0,0,.35)}
 body:not(.mirror) .mirror-btn{background:rgba(255,255,255,.92);border-color:#8a6d1f;color:#8a6d1f;box-shadow:0 4px 14px rgba(20,40,60,.2)}
 .mirror-btn:hover{background:rgba(232,201,106,.18)}
+.mirror-btn{z-index:999;touch-action:manipulation}
+@media (max-width:760px){.mirror-btn{bottom:84px;right:14px}} /* clear of mobile browser chrome */
 /* ===== TICKER ===== */
 .ticker{position:relative;z-index:2;background:var(--navy);border-bottom:2px solid var(--gold);overflow:hidden;white-space:nowrap}
 body.mirror .ticker{background:#04090f}
