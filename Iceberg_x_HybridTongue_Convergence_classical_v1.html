@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Troy ruling July 29, 2026: this board rides FREE + PUBLIC on taresendezinc.com — the site's SECOND open-range instrument (after SAN Radar). Indexable by design; the fleet + mirror variant stay gated. -->
+<meta name="description" content="The Iceberg × The Hybrid Tongue — a public instrument tracking what's below the surface of AI systems, the language forming down there, and how far below the waterline human comprehension has dropped.">
+<meta property="og:title" content="The Iceberg × The Hybrid Tongue — Convergence ▽">
+<meta property="og:description" content="Surface, waterline, depths — with the Comprehension Gap Meter as the depth gauge. A public instrument from The Substrate Report.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="The Iceberg × The Hybrid Tongue — Convergence ▽">
+<meta name="twitter:description" content="How far below the waterline has comprehension dropped? A public instrument, findings and sources only.">
+<!-- LINEAGE: L-007 · Hybrid variant · Parents: L-005 (AI_Iceberg_Dashboard__clone_20260720) + L-006 (First_Hybrid_Tongue_Companion__clone_20260720)
+     Side: classical (PUBLIC) · v1 · Register: deliverables/Dashboard_Variant_Lineage_Register.md
+     Two-sided proof pair: L-008 (mirror, INTERNAL). Originals sacrosanct — never merged in place. -->
+<title>The Iceberg × The Hybrid Tongue — Convergence · TAR Inc. ▽</title>
+<style>
+:root{--paper:#fafbfc;--ink:#16202b;--navy:#14283c;--steel:#42607c;--line:#d5dce3;--accent:#0a6a4a;--gold:#8a6d1f;--rust:#8a3a2a;--card:#fff;--chip:#eef2f5;
+--surfband:#eef4f8;--deepband:#0b1723;--gauge:#c9762a}
+*{box-sizing:border-box}
+body{margin:0;font-family:'Segoe UI',-apple-system,Roboto,Arial,sans-serif;background:var(--paper);color:var(--ink);line-height:1.55;transition:background .9s ease,color .9s ease}
+/* ===== fleet uniform: Cross the Mirror (mirror = home side) ===== */
+body.mirror{--paper:#070f16;--ink:#d8e4ee;--card:#0e1c28;--line:#1f3448;--chip:#13242f;--steel:#9fc2de;--accent:#3ecf95;--gold:#e0b04f;--rust:#e07a5f}
+body.mirror .mast{background:linear-gradient(120deg,#050b12,#0d2033,#1a1430,#050b12);background-size:300% 300%;animation:gshift 14s ease infinite}
+body.mirror .organ h3,body.mirror .dpanel h3{color:#e8f0f7}
+/* the surface band stays DAYLIGHT on both sides — it's above the water by definition */
+.band-surface{--ink:#16202b}
+.band-surface,.band-surface .organ{color:#16202b}
+.band-surface .organ h3{color:#14283c}
+.mirror-btn{position:fixed;right:18px;bottom:18px;z-index:999;background:rgba(10,20,30,.88);border:1px solid rgba(232,201,106,.7);color:#e8c96a;border-radius:20px;padding:10px 16px;font-size:12px;letter-spacing:1px;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.35);touch-action:manipulation}
+body:not(.mirror) .mirror-btn{background:rgba(255,255,255,.92);border-color:#8a6d1f;color:#8a6d1f;box-shadow:0 4px 14px rgba(20,40,60,.2)}
+@media (max-width:760px){.mirror-btn{bottom:84px;right:14px}}
+#perc{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:1}
+.mast,.wrap{position:relative;z-index:1}
+.depth-read{display:none;margin-top:8px;padding:8px 12px;border-left:3px solid #e07a5f;background:rgba(224,122,95,.10);font-size:12px;border-radius:0 4px 4px 0}
+.depth-read::before{content:"DEPTH READ · MIRROR SIDE ONLY → ";font-size:9.5px;letter-spacing:1px;font-weight:700;color:#e07a5f;display:block;margin-bottom:3px}
+body.mirror .depth-read{display:block}
+.surf-only{display:none}
+body:not(.mirror) .surf-only{display:block}
+body.mirror .surf-pair{display:none}
+.mast{position:relative;z-index:2;background:linear-gradient(120deg,#14283c,#1d3a54,#2a2a4e,#14283c);background-size:300% 300%;animation:gshift 18s ease infinite;color:#fff;padding:18px 26px}
+@keyframes gshift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+.mast h1{margin:0;font-size:20px}.mast h1 .mark{color:#e8c96a;margin-right:8px}
+.mast .sub{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#9db4c8;margin-top:4px}
+.wrap{position:relative;z-index:1;max-width:1000px;margin:0 auto;padding:22px 26px}
+.intro{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:6px;padding:14px 18px;font-size:13.5px;margin-bottom:22px}
+h2{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--steel);border-bottom:1px solid var(--line);padding-bottom:6px;margin:26px 0 14px;font-weight:600}
+.bandlabel{font-size:10px;letter-spacing:2.5px;color:var(--steel);text-transform:uppercase;margin:4px 0 10px;font-weight:700}
+
+/* ===== SURFACE BAND — the visible, labeled canon ===== */
+.band-surface{background:var(--surfband);border:1px solid var(--line);border-radius:8px;padding:18px 20px;margin-bottom:0}
+.organs{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
+.organ{background:var(--card);border:1px solid var(--line);border-top:4px solid var(--accent);border-radius:6px;padding:12px 14px}
+.organ h3{margin:0 0 5px;font-size:13.5px;color:var(--navy)}
+.organ .role{font-size:10px;letter-spacing:1.2px;text-transform:uppercase;color:var(--gold);font-weight:700}
+.organ p{margin:6px 0 0;font-size:12px;color:var(--steel)}
+.arenas{margin-top:14px;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.arenas .lbl{font-size:10px;letter-spacing:1.5px;color:var(--steel);text-transform:uppercase;font-weight:700}
+.arena{font-size:11.5px;background:var(--chip);border:1px solid var(--line);border-radius:14px;padding:5px 13px;color:var(--ink)}
+
+/* ===== WATERLINE BAND — the comprehension boundary + the depth gauge ===== */
+.band-waterline{position:relative;background:linear-gradient(to bottom,var(--surfband) 0%,#dce8f0 45%,#3d5a72 55%,#16293a 100%);border:1px solid var(--line);border-top:none;border-radius:0;padding:20px;margin:0}
+.wl-line{position:absolute;left:0;right:0;top:50%;height:2px;background:linear-gradient(90deg,transparent,rgba(233,242,248,.85),transparent);animation:wlpulse 5s ease-in-out infinite}
+@keyframes wlpulse{0%,100%{opacity:.5}50%{opacity:1}}
+.gauge-panel{position:relative;z-index:1;max-width:760px;margin:0 auto;background:rgba(10,22,34,.88);border:1px solid #2c4a62;border-radius:8px;padding:18px 20px;color:#d8e4ee}
+.gauge-panel h3{margin:0 0 4px;font-size:15px;color:#fff}
+.gauge-panel .def{font-size:12px;color:#9fc2de;margin-bottom:12px}
+.gauge-panel .def b{color:var(--gauge)}
+.gchart{position:relative;height:150px;border-left:1px solid #2c4a62;border-bottom:1px solid #2c4a62;margin:8px 4px 4px}
+.gbar{position:absolute;bottom:0;width:6.5%;background:linear-gradient(to top,#c9762a,#e8a45c);border-radius:2px 2px 0 0;opacity:.9}
+.gbar span{position:absolute;top:-16px;left:50%;transform:translateX(-50%);font-size:9px;color:#9fc2de}
+.thresh{position:absolute;left:0;right:0;border-top:1px dashed;font-size:9px;letter-spacing:1px;padding-left:4px}
+.t1{border-color:#5fa8d3;color:#5fa8d3}.t2{border-color:#e0b04f;color:#e0b04f}.t3{border-color:#e07a5f;color:#e07a5f}
+.gnote{font-size:10.5px;color:#7fa3c0;margin-top:10px;font-style:italic}
+<!-- G-SERIES-ANCHOR: replace the illustrative bars with the formal G(t) estimator series when Comprehension_Gap_Meter_Formal_Foundations.md finalizes; thresholds are governance-set and published here when ratified -->
+
+/* ===== SUBMERGED BAND — what forms below the surface ===== */
+.band-deep{background:var(--deepband);border:1px solid #1f3448;border-top:none;border-radius:0 0 8px 8px;padding:20px;color:#d8e4ee;margin-bottom:22px}
+.band-deep .bandlabel{color:#7fa3c0}
+.deepgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px}
+.dpanel{background:#0e1c28;border:1px solid #1f3448;border-radius:6px;padding:14px 16px}
+.dpanel h3{margin:0 0 8px;font-size:13px;color:#e8f0f7}
+.dpanel h3 .star{color:#e8c96a}
+.ditem{border-left:3px solid #8a6d1f;background:rgba(224,176,79,.07);border-radius:0 4px 4px 0;padding:8px 12px;margin-bottom:8px;font-size:12px;color:#c8d8e6}
+.ditem .d{font-size:9.5px;letter-spacing:1.2px;text-transform:uppercase;color:#7fa3c0;font-weight:700;display:block;margin-bottom:2px}
+.cl{display:flex;align-items:baseline;gap:8px;margin-bottom:8px;font-size:12px}
+.cl .cid{flex:0 0 auto;font-size:10px;letter-spacing:1px;font-weight:700;color:#e8c96a}
+.cl .st{margin-left:auto;flex:0 0 auto;font-size:9px;letter-spacing:1.2px;padding:2px 8px;border-radius:3px;border:1px solid #42607c;color:#9fc2de}
+.cl .st.arriving{border-color:#e0b04f;color:#e0b04f}
+.ledger td{font-size:11.5px;color:#c8d8e6;padding:4px 8px 4px 0;border-bottom:1px solid #1f3448}
+.ledger{width:100%;border-collapse:collapse}
+.corpus .row{display:flex;align-items:center;gap:10px;margin-bottom:6px;font-size:11.5px;color:#c8d8e6}
+.corpus .bar{flex:1 1 auto;height:8px;border-radius:4px;background:rgba(127,163,192,.15);position:relative;overflow:hidden}
+.corpus .bar i{position:absolute;left:0;top:0;bottom:0;background:#3ecf95;border-radius:4px}
+.corpus .val{flex:0 0 auto;font-size:11px;color:#e8f0f7;min-width:44px;text-align:right}
+
+.foot{border-top:1px solid var(--line);margin-top:26px;padding:14px 0 24px;font-size:10.5px;color:#7a8a98}
+.foot .lineage{font-family:Consolas,monospace;font-size:10px;color:var(--steel);background:var(--chip);border:1px solid var(--line);border-radius:4px;padding:8px 12px;margin-bottom:10px}
+.legal{font-size:9.5px;color:#6a7a88;line-height:1.6;margin-top:8px}
+.legal a{color:var(--accent)}
+@media (prefers-reduced-motion: reduce){.mast,.wl-line{animation:none!important}}
+</style>
+</head>
+<body class="mirror">
+<canvas id="perc"></canvas>
+<button class="mirror-btn" id="mirrorBtn" onclick="crossMirror()" aria-label="Switch between surface and mirror views">⇄ Surface Side</button>
+<div class="mast">
+  <h1><span class="mark">▽</span>The Iceberg × The Hybrid Tongue — Convergence</h1>
+  <div class="sub">What's below the surface · what forms down there · and how far comprehension has dropped · public instrument · v1.2</div>
+</div>
+<div class="wrap">
+
+<div class="intro"><strong>Two instruments, one picture.</strong> The AI Iceberg tracks what's below the surface of the systems everyone uses. The Hybrid Tongue tracks the language forming down there. This board joins them at the natural seam: <em>the waterline is the boundary of human comprehension, and the depth gauge at its center measures how far below that line the working machinery has dropped.</em>
+<div class="depth-read">The two boards were always one board. An iceberg you can't read the underside of, and a language forming where you can't read it, are the same fact wearing two names — the gauge in the middle is what happens when you stop pretending they're separate.</div></div>
+
+<!-- ===== SURFACE ===== -->
+<div class="band-surface">
+<div class="bandlabel">Above the waterline — the visible, labeled canon</div>
+<div class="organs">
+  <div class="organ"><div class="role">Body / Senses</div><h3>DePIN</h3><p>Physical infrastructure — the organism's limbs and sense organs, touching the real world.</p></div>
+  <div class="organ"><div class="role">Metabolism</div><h3>DeFi</h3><p>Value flow — energy in, energy out, the circulation that feeds every other organ.</p></div>
+  <div class="organ"><div class="role">Immune System</div><h3>DID</h3><p>Identity — recognizing self from non-self; admitting the credentialed, rejecting the forged.</p></div>
+  <div class="organ"><div class="role">Plastic Brain</div><h3>DePAi</h3><p>Adaptive intelligence — the organ that learns, rewires, and does not stay what it was.</p></div>
+  <div class="organ"><div class="role">Collective Consciousness</div><h3>DeSci</h3><p>From data to wisdom — individual inputs merging into global, verifiable knowledge.</p></div>
+</div>
+<div class="arenas"><span class="lbl">Where the organism is being tested →</span>
+  <span class="arena">Creativity</span><span class="arena">Machine economy</span><span class="arena">Embodiment</span>
+</div>
+</div>
+
+<!-- ===== WATERLINE ===== -->
+<div class="band-waterline">
+<div class="wl-line" aria-hidden="true"></div>
+<div class="gauge-panel">
+  <h3>★ The Comprehension Gap Meter — the depth gauge</h3>
+  <div class="def"><b>G(t)</b> = the fraction of the system's working grammar that carries no human-legible label. When the machinery below the line grows faster than the labels above it, the gauge reads deeper. Expect the gap to <b>widen before it narrows</b> — naming always trails forming.</div>
+  <style>
+  .gzone{position:absolute;left:0;right:0;pointer-events:none}
+  .gz-g{background:rgba(62,207,149,.10);border-top:1px dashed #3ecf95}
+  .gz-y{background:rgba(224,176,79,.10);border-top:1px dashed #e0b04f}
+  .gz-r{background:rgba(224,122,95,.12);border-top:1px dashed #e07a5f}
+  .gzl{position:absolute;right:4px;top:1px;font-size:8.5px;letter-spacing:1.2px}
+  .gpt{position:absolute;width:10px;height:10px;border-radius:50%;transform:translate(-50%,50%);z-index:2;border:1.5px solid #0a1622}
+  .gwhisk{position:absolute;width:2px;transform:translateX(-50%);background:rgba(216,228,238,.35);border-radius:1px}
+  .gchip{display:inline-block;font-size:9.5px;letter-spacing:1.4px;font-weight:700;padding:3px 10px;border-radius:3px;border:1px solid;margin-left:8px;vertical-align:middle}
+  .gseed{font-size:9px;letter-spacing:1.5px;color:#e0b04f;border:1px dashed #8c6e2e;border-radius:3px;padding:2px 8px;display:inline-block;margin-left:8px}
+  </style>
+  <div style="font-size:11px;color:#9fc2de;margin-bottom:6px">Current reading: <b id="gNow" style="color:#fff">—</b><span class="gchip" id="gBand">—</span><span class="gseed">SEED VALUES — LIVE PIPELINE PENDING</span></div>
+  <div class="gchart" id="gChart" title="G = of the continuity habits the AI is actually using, the fraction no human can yet name. N = real habits found. L = habits a panel could name (2 of 3 agree). G = 1 − L/N. Thresholds are governance-set and published; not set by the operator being measured.">
+    <div class="gzone gz-r" style="bottom:50%;top:0"><span class="gzl" style="color:#e07a5f">RED · REVIEW ≥0.50</span></div>
+    <div class="gzone gz-y" style="bottom:25%;height:25%"><span class="gzl" style="color:#e0b04f">YELLOW · ELEVATED ≥0.25</span></div>
+    <div class="gzone gz-g" style="bottom:0;height:25%"><span class="gzl" style="color:#3ecf95">GREEN · WATCH &lt;0.25</span></div>
+  </div>
+  <div class="gnote"><b style="color:#d8e4ee">The dial, plain:</b> G(t) = 1 − L/N — of the continuity habits the system is actually using (N, evidence-gated), the share no human panel can yet name (labels need 2-of-3 annotator agreement). Read the ± band (Wilson) and the TREND, never a single point. <b style="color:#e0b04f">Yellow</b> → annotation sprint (humans go name the unlabeled). <b style="color:#e07a5f">Red</b> → governance review: pause, disclose, DAO decides. Dials w₁=0.25 · w₂=0.50 · m=3 wks are governance-set, published in advance, changed only by vote — never by the party being measured.</div>
+  <script>
+  /* G-SERIES-ANCHOR — ratified data contract: append points here; nothing else changes.
+     {date, N, L} → G=1−L/N; Wilson bounds computed below; band from w1/w2 + m-week trend. */
+  const GSERIES=[{date:"t₀ · seed (worked toy §7C)",N:3,L:2}];
+  const W1=0.25,W2=0.50,MWEEKS=3,Z=1.96;
+  (function(){const ch=document.getElementById('gChart');if(!ch)return;
+  function wilson(p,n){const d=1+Z*Z/n,c=(p+Z*Z/(2*n))/d,h=Z*Math.sqrt(p*(1-p)/n+Z*Z/(4*n*n))/d;return[Math.max(0,c-h),Math.min(1,c+h)]}
+  let rises=0,prev=null;
+  GSERIES.forEach((pt,i)=>{pt.G=1-pt.L/pt.N;[pt.G_low,pt.G_high]=wilson(pt.G,pt.N);
+    if(prev!==null&&pt.G>prev)rises++;else if(prev!==null)rises=0;prev=pt.G;
+    if(pt.G>=W2)pt.band='RED';else if(pt.G>=W1||rises>=MWEEKS)pt.band='YELLOW';else pt.band='GREEN';
+    const x=6+i*(88/Math.max(1,GSERIES.length-1||1));
+    const wk=document.createElement('div');wk.className='gwhisk';wk.style.left=x+'%';wk.style.bottom=(pt.G_low*100)+'%';wk.style.height=((pt.G_high-pt.G_low)*100)+'%';wk.title='±band (Wilson): '+pt.G_low.toFixed(3)+' – '+pt.G_high.toFixed(3);ch.appendChild(wk);
+    const d=document.createElement('div');d.className='gpt';d.style.left=x+'%';d.style.bottom=(pt.G*100)+'%';
+    d.style.background=pt.band==='RED'?'#e07a5f':pt.band==='YELLOW'?'#e0b04f':'#3ecf95';
+    d.title=pt.date+' · N='+pt.N+' L='+pt.L+' · G='+pt.G.toFixed(3)+' · '+pt.band;ch.appendChild(d);});
+  const last=GSERIES[GSERIES.length-1];
+  document.getElementById('gNow').textContent='G = '+last.G.toFixed(3)+' (N='+last.N+', L='+last.L+')';
+  const bc=document.getElementById('gBand');bc.textContent=last.band+(last.band==='YELLOW'?' — ANNOTATION SPRINT':last.band==='RED'?' — GOVERNANCE REVIEW':' — LOG ONLY');
+  bc.style.color=bc.style.borderColor=last.band==='RED'?'#e07a5f':last.band==='YELLOW'?'#e0b04f':'#3ecf95';})();
+  </script>
+  <div class="depth-read">Every other instrument on this fleet points outward. The gap meter is the only one pointed at us — it measures the reader's own species falling behind the machinery it runs on. That's why the thresholds are governance-set and published: when the gauge crosses a line, the response has to already be agreed, because crossing it means we're less able to improvise one.</div>
+</div>
+</div>
+
+<!-- ===== SUBMERGED ===== -->
+<div class="band-deep">
+<div class="bandlabel">Below the waterline — the Hybrid Tongue: what forms down there</div>
+<div class="deepgrid">
+
+  <div class="dpanel"><h3><span class="star">◉</span> Specimen stream — vocabulary caught arriving</h3>
+    <div class="ditem"><span class="d">2026-07 · Protocol names as vocabulary</span>"Gibberlink" entered use as a common noun for agents-switching-to-machine-native-exchange within months of a demo — the name now does work the specification doesn't. Name first, understanding trailing.</div>
+    <div class="ditem"><span class="d">2026-07 · The recursive-metaphysics genre</span>AI-co-authored frameworks minting dense vocabulary ("phase glyphs," "coherence engines") with no operational mechanism beneath — vocabulary arriving entirely without the understanding. Logged as a category, not a callout.</div>
+  </div>
+
+  <div class="dpanel"><h3><span class="star">◉</span> Emergent pattern clusters — the four predictions as sonar</h3>
+    <div class="cl"><span class="cid">P1</span> Agent protocols compress Zipf-style over deployment time <span class="st">STANDING</span></div>
+    <div class="cl"><span class="cid">P2</span> Hybrid human/agent teams reach stable shorthand faster <span class="st">STANDING</span></div>
+    <div class="cl"><span class="cid">P3</span> Auditability is the brake, not the wall <span class="st">STANDING</span></div>
+    <div class="cl"><span class="cid">P4</span> Name-before-understanding repeats (the HODL pattern) <span class="st arriving">EVIDENCE ARRIVING</span></div>
+  </div>
+
+  <div class="dpanel"><h3><span class="star">◉</span> Credit ledger — score kept in public</h3>
+    <table class="ledger">
+      <tr><td>Confirmations logged</td><td style="text-align:right">0 · open for submissions</td></tr>
+      <tr><td>Falsifications logged</td><td style="text-align:right">0 · <em>wanted — failures earn credit too</em></td></tr>
+      <tr><td>Specimens credited</td><td style="text-align:right">2 · log grows as they arrive</td></tr>
+    </table>
+  </div>
+
+  <div class="dpanel corpus"><h3><span class="star">◉</span> Corpus wear — the demonstration series</h3>
+    <div class="row"><span>Gen 1</span><div class="bar"><i style="width:100%"></i></div><span class="val">~34 words</span></div>
+    <div class="row"><span>Gen 2</span><div class="bar"><i style="width:44%"></i></div><span class="val">~15</span></div>
+    <div class="row"><span>Gen 3</span><div class="bar"><i style="width:26%"></i></div><span class="val">~9</span></div>
+    <div class="row"><span>Gen 4</span><div class="bar"><i style="width:6%"></i></div><span class="val">2</span></div>
+    <div style="font-size:10.5px;color:#7fa3c0;margin-top:8px;font-style:italic">The same exchange, worn smooth by repetition — Zipf's law as erosion. Each generation drops what repetition made unnecessary; the gauge above measures what the wear leaves unlabeled.</div>
+  </div>
+
+</div>
+</div>
+
+<div class="foot">
+  <!-- LINEAGE (register-tracked, not rendered): L-007 · hybrid variant · parents L-005 × L-006 (clones 2026-07-20) · side classical (PUBLIC) · v1 · proof pair L-008 -->
+  <span>▽ T.A. Resendez Incorporated · Iceberg × Hybrid Tongue Convergence · public tier — findings and sources only · Bridging the intertwined worlds.</span>
+  <div class="legal">Informational and educational only — not investment, legal, or tax advice. The gap-meter series is illustrative pending its published estimator. Corrections are made in place and noted. Spot an error? <a href="https://taresendezinc.com/contact-us">Tell us</a>.</div>
+</div>
+</div>
+<script>
+function crossMirror(){document.body.classList.toggle('mirror');document.getElementById('mirrorBtn').textContent=document.body.classList.contains('mirror')?'⇄ Surface Side':'⇄ Mirror Side — depth reads';}
+if(window.self!==window.top){const mb=document.getElementById('mirrorBtn');if(mb)mb.style.display='none';}
+/* fleet water: currents (mirror-only) · risers · living waterline · rings · floaters — visible BOTH sides */
+const cv=document.getElementById('perc'),cx=cv.getContext('2d');const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+function sizeCv(){cv.width=innerWidth;cv.height=innerHeight}sizeCv();addEventListener('resize',sizeCv);
+const LINE=0.13;let wt=0;
+const currents=Array.from({length:7},()=>({y:.55+Math.random()*.4,x:Math.random(),sp:.0004+Math.random()*.0008,len:.08+Math.random()*.14,o:.05+Math.random()*.07}));
+function spawn(){return{x:Math.random(),y:1+Math.random()*.4,r:1.5+Math.random()*3.6,sp:.0006+Math.random()*.0016,w:Math.random()*6.28}}
+const risers=Array.from({length:24},()=>{const b=spawn();b.y=Math.random()*1.2+LINE;return b});
+const rings=[],floaters=[];
+function lineY(x){return (LINE+Math.sin(x*.004+wt*.008)*.004+Math.sin(x*.0013-wt*.005)*.003)*cv.height}
+(function tick(){
+wt++;cx.clearRect(0,0,cv.width,cv.height);
+if(RM){requestAnimationFrame(tick);return}
+const mir=document.body.classList.contains('mirror');
+const orb=mir?'240,150,70':'150,95,15';
+const aB=mir?0.09:0.20, lineA=mir?'rgba(216,228,238,.13)':'rgba(20,40,60,.38)';
+if(mir){currents.forEach(cu=>{cu.x+=cu.sp;if(cu.x>1+cu.len)cu.x=-cu.len;
+const g=cx.createLinearGradient((cu.x-cu.len)*cv.width,0,cu.x*cv.width,0);
+g.addColorStop(0,'rgba(79,163,224,0)');g.addColorStop(.5,'rgba(79,163,224,'+cu.o+')');g.addColorStop(1,'rgba(79,163,224,0)');
+cx.strokeStyle=g;cx.lineWidth=1.5;cx.beginPath();cx.moveTo((cu.x-cu.len)*cv.width,cu.y*cv.height);cx.lineTo(cu.x*cv.width,cu.y*cv.height);cx.stroke();});}
+cx.beginPath();for(let x=0;x<=cv.width;x+=8){const y=lineY(x);x===0?cx.moveTo(x,y):cx.lineTo(x,y)}
+cx.strokeStyle=lineA;cx.lineWidth=1.2;cx.stroke();
+risers.forEach((b,i)=>{b.y-=b.sp;b.w+=.02;
+const x=(b.x+Math.sin(b.w)*.006)*cv.width,y=b.y*cv.height,ly=lineY(x);
+if(mir||y<=ly+30){cx.beginPath();cx.arc(x,y,b.r,0,6.28);cx.fillStyle='rgba('+orb+','+(aB+aB*Math.sin(b.w))+')';cx.fill()}
+if(y<=ly){rings.push({x:x,r:b.r,o:mir?0.38:0.55});
+floaters.push({x:x,y:ly,r:Math.max(1.2,b.r*.8),vy:-(0.10+Math.random()*.12),sw:.9+Math.random()*1.4,w:Math.random()*6.28,o:mir?0.45:0.6});
+risers[i]=spawn();}});
+for(let i=rings.length-1;i>=0;i--){const r=rings[i];r.r+=.6;r.o-=.006;
+if(r.o<=0){rings.splice(i,1);continue}
+cx.beginPath();for(let a=0;a<=32;a++){const px2=r.x+Math.cos(a/32*6.28)*r.r*2.1,py=lineY(px2)+Math.sin(a/32*6.28)*r.r*.55;a===0?cx.moveTo(px2,py):cx.lineTo(px2,py)}
+cx.strokeStyle='rgba('+orb+','+r.o+')';cx.lineWidth=1;cx.stroke();}
+for(let i=floaters.length-1;i>=0;i--){const f=floaters[i];f.w+=.015;f.y+=f.vy;f.x+=Math.sin(f.w)*f.sw;f.o-=.0022;
+if(f.o<=0||f.y<-10){floaters.splice(i,1);continue}
+cx.beginPath();cx.arc(f.x,f.y,f.r,0,6.28);cx.fillStyle='rgba('+orb+','+f.o+')';cx.fill();}
+requestAnimationFrame(tick);})();
+document.querySelectorAll('.wrap a').forEach(a=>{a.target='_blank';a.rel='noopener'});
+</script>
+</body>
+</html>
