@@ -1,0 +1,25 @@
+Security Policy
+🔒 Public Client-Side Instruments Policy
+
+The **`san-dashboards`** repository hosts public, browser-rendered visualization instruments. Because these files run directly in the client's browser, maintaining strict separation between public telemetry models and internal infrastructure is critical.
+
+🛡️ Security Boundaries & Best Practices
+
+1. **Zero Client-Side Secrets**:
+   - No private API keys, backend bearer tokens, cloud credentials, or private RPC endpoints should ever be committed to HTML, JS, or CSS files.
+   - All data rendered in these files must be static public datasets or sourced from authenticated, public-facing gateway endpoints.
+
+2. **Telemetry Sanitization**:
+   - Any physical infrastructure coordinates, internal node IDs, or proprietary network topologies displayed must be sanitized and generalized for public consumption.
+
+3. **Dependency Integrity**:
+   - Any external CDN-hosted libraries (e.g., D3, Three.js, Canvas libraries) should use pinned versioning and Subresource Integrity (SRI) hashes when feasible to prevent supply chain tampering.
+
+🚨 Reporting a Vulnerability
+
+If you discover a security concern, an exposed credential, or a data leakage issue within these files:
+
+- **Do not open a public issue.**
+- Report privately via **GitHub Private Vulnerability Reporting** (under the repository's **Security** tab).
+- Alternatively, contact Troy Resendez privately on Discord (`@owltar`) or via [taresendezinc.com](https://taresendezinc.com/).
+Reports will be acknowledged within 48 hours.
