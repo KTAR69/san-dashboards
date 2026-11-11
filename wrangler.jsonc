@@ -1,0 +1,8 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "still-night-9b61",
+  "compatibility_date": "2026-11-11",
+  "assets": {
+    "directory": "./"
+  }
+}
