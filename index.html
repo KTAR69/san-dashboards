@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>SAN Dashboards — T.A. Resendez Incorporated ▽</title>
+<style>
+/* ===== Design language: Strategy (BI-grade density) × IEEE/NIST (standards rigor) × DeSci (open evidence) — SAN perspective ===== */
+:root{--paper:#fafbfc;--ink:#16202b;--navy:#14283c;--steel:#42607c;--line:#d5dce3;--accent:#0a6a4a;--gold:#8a6d1f;--card:#ffffff}
+*{box-sizing:border-box}
+body{margin:0;font-family:'Segoe UI',-apple-system,Roboto,Arial,sans-serif;background:var(--paper);color:var(--ink);line-height:1.5}
+@keyframes gradShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+.masthead{background:linear-gradient(120deg,#14283c,#1d3a54,#2a2a4e,#14283c);background-size:300% 300%;animation:gradShift 18s ease infinite;color:#fff;padding:18px 28px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+.masthead .brand{font-size:17px;font-weight:600;letter-spacing:0.4px}
+.masthead .brand .mark{color:#e8c96a;margin-right:8px}
+.masthead .sub{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#9db4c8}
+.member-strip{background:#eef2f5;border-bottom:1px solid var(--line);padding:8px 28px;font-size:11.5px;color:var(--steel);letter-spacing:0.4px}
+.member-strip strong{color:var(--accent)}
+/* Carousel */
+.rail-wrap{padding:18px 28px 6px}
+.rail-label{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--steel);margin-bottom:10px;font-weight:600}
+.rail{display:flex;gap:14px;overflow-x:auto;padding-bottom:12px;scroll-snap-type:x mandatory}
+.tile{min-width:250px;max-width:250px;scroll-snap-align:start;background:var(--card);border:1px solid var(--line);border-radius:8px;cursor:pointer;transition:box-shadow .15s,border-color .15s;overflow:hidden}
+.tile:hover{box-shadow:0 4px 16px rgba(20,40,60,.12);border-color:var(--steel)}
+.tile.active{border:2px solid var(--accent);box-shadow:0 4px 16px rgba(10,106,74,.15)}
+.tile .thumb{height:110px;background:linear-gradient(135deg,#dfe7ee,#c9d6e2);display:flex;align-items:center;justify-content:center;font-size:34px;color:var(--navy)}
+.tile .meta{padding:10px 14px}
+.tile .meta h3{margin:0 0 3px;font-size:13.5px;color:var(--navy)}
+.tile .meta .tag{font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--steel)}
+.tile .meta .ver{float:right;font-size:10px;color:var(--gold);font-weight:600}
+/* Viewer */
+.viewer-wrap{padding:10px 28px 28px}
+.viewer-bar{display:flex;justify-content:space-between;align-items:center;background:var(--card);border:1px solid var(--line);border-bottom:none;border-radius:8px 8px 0 0;padding:10px 16px}
+.viewer-bar .title{font-size:14px;font-weight:600;color:var(--navy)}
+.viewer-bar .title .status{display:inline-block;margin-left:10px;font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--accent);border:1px solid var(--accent);border-radius:3px;padding:2px 7px}
+.viewer-bar .actions button{background:var(--navy);color:#fff;border:none;border-radius:5px;padding:7px 14px;font-size:12px;cursor:pointer;margin-left:8px;letter-spacing:0.4px}
+.viewer-bar .actions button:hover{background:var(--steel)}
+.viewer{width:100%;height:72vh;border:1px solid var(--line);border-radius:0 0 8px 8px;background:#fff}
+.viewer iframe{width:100%;height:100%;border:none;border-radius:0 0 8px 8px}
+.placeholder{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--steel);gap:10px}
+.placeholder .big{font-size:44px}
+.placeholder p{font-size:13px;max-width:420px;text-align:center;margin:0}
+.foot{padding:14px 28px 26px;font-size:10.5px;color:#7a8a98;border-top:1px solid var(--line);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+@media(max-width:700px){.viewer{height:60vh}.tile{min-width:200px}}
+/* ===== Mirror Side (default) ===== */
+body{transition:background .9s ease,color .9s ease}
+body.mirror{--paper:#070f16;--ink:#d8e4ee;--card:#0e1c28;--line:#1f3448;--steel:#7fa3c0;--accent:#3ecf95;--gold:#e0b04f}
+body.mirror .member-strip{background:#0b1723;border-bottom-color:var(--line)}
+body.mirror .tile .thumb{background:linear-gradient(135deg,#122536,#1a1430);color:#e0b04f}
+body.mirror .placeholder{color:#7fa3c0}
+body.mirror .viewer{background:#0a141c}
+.mirror-btn{position:fixed;right:18px;bottom:18px;z-index:999;background:rgba(10,20,30,.88);border:1px solid rgba(232,201,106,.7);color:#e8c96a;border-radius:20px;padding:10px 16px;font-size:12px;letter-spacing:1px;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.35);touch-action:manipulation}
+body:not(.mirror) .mirror-btn{background:rgba(255,255,255,.92);border-color:#8a6d1f;color:#8a6d1f;box-shadow:0 4px 14px rgba(20,40,60,.2)}
+@media (max-width:760px){.mirror-btn{bottom:84px;right:14px}} /* clear of mobile browser chrome + footer text */
+#perc{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:1}
+.masthead,.member-strip,.rail-wrap,.viewer-wrap,.foot{position:relative;z-index:1}
+.legal{flex-basis:100%;font-size:9.5px;color:#6a7a88;line-height:1.6;margin-top:8px}
+.legal a{color:var(--accent)}
+.tile:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.whatsnew{position:relative;z-index:1;padding:8px 28px;font-size:11.5px;color:#e0b04f;background:rgba(224,176,79,.08);border-bottom:1px solid var(--line);letter-spacing:.3px}
+.whatsnew strong{letter-spacing:1.5px;font-size:10px;margin-right:8px}
+body.mirror{--steel:#9fc2de}
+body.mirror .viewer-bar .title,body.mirror .tile .meta h3{color:#e8f0f7} /* headings must survive the depths */
+@media (prefers-reduced-motion: reduce){.masthead,.tk-track{animation:none!important}.tile{transition:none!important}}
+</style>
+</head>
+<body class="mirror">
+<canvas id="perc"></canvas>
+<div class="masthead">
+  <div>
+    <div class="brand"><span class="mark">▽</span>SAN Dashboards</div>
+    <div class="sub">Substrate-Aware Network · Public Instruments · T.A. Resendez Incorporated</div>
+  </div>
+</div>
+<button class="mirror-btn" id="mirrorBtn" onclick="crossMirror()" aria-label="Switch between surface and mirror views">⇄ Surface Side</button>
+
+<div class="member-strip"><strong>Members &amp; subscribers:</strong> living instruments — findings and sources, updated on their stated cadence. Every claim carries its trail.</div>
+<!-- WHATS-NEW-ANCHOR: newest entry first; keep to 3 lines max, prune oldest -->
+<div class="whatsnew"><strong>WHAT'S NEW</strong> · Nov 10 — All five instruments re-verified against primary sources, with corrections noted in place · Texas Standing: gold payment authority dated May 1, 2027; bitcoin reserve still in ETF shares, custodian pending · Sovereign Standing: OCC final GENIUS rule, digital ruble live, U.S. CBDC ban law, Saudi exit from mBridge · Hybrid Tongue: P1 lab evidence, P5 added</div>
+
+<div class="rail-wrap">
+  <div class="rail-label">Select an instrument — click to load, expand to full screen</div>
+  <div class="rail" id="rail"></div>
+</div>
+
+<div class="viewer-wrap">
+  <div class="viewer-bar">
+    <div class="title" id="viewerTitle">Select a dashboard above<span class="status" id="viewerStatus" style="display:none">LIVE</span></div>
+    <div class="actions">
+      <button onclick="crossMirror()" aria-label="Switch between surface and mirror views">⇄ Sides</button>
+      <button onclick="expandViewer()">⤢ Full screen</button>
+      <button onclick="openTab()">Open in new tab ↗</button>
+    </div>
+  </div>
+  <div class="viewer" id="viewer">
+    <div class="placeholder"><div class="big">▽</div><p>Pick an instrument from the rail above. It loads here; Full Screen gives it the whole glass.</p></div>
+  </div>
+</div>
+
+<div class="foot">
+  <span>▽ T.A. Resendez Incorporated · Substrate-Aware Network · Bridging the intertwined worlds.</span>
+  <span>Public tier instruments · methodology remains proprietary · © 2026</span>
+  <div class="legal">Informational and educational only — not investment, legal, or tax advice, and no recommendation to buy or sell any asset. Market prices on instruments arrive via third-party feed (CoinGecko) and may be delayed. Linked sources belong to their publishers. Corrections are made in place and noted. Visits are counted anonymously (GoatCounter — no cookies, no personal data). Spot an error? <a href="https://taresendezinc.com/contact-us">Tell us</a>.</div>
+</div>
+
+<script>
+/* ================= CONFIG — Troy edits ONLY this array to add/remove dashboards =================
+   src: path to the public dashboard HTML file uploaded alongside this hub (same folder or full URL)
+   Set src:"" for a coming-soon tile.                                                              */
+const DASHBOARDS = [
+  {id:"radar", icon:"◉", title:"SAN Radar", tag:"Watchlist beeps · verification gauges · tether map", ver:"v2.1", cadence:"Updated on beeps", src:"SAN_Radar_Public.html"},
+  {id:"sovereign", icon:"⚖", title:"Sovereign Standing — Public Board", tag:"Three currency classes · living tether map", ver:"v2.1", cadence:"Updated on structural events", src:"Sovereign_Standing_Public.html"},
+  {id:"tongue", icon:"⟡", title:"First Hybrid Tongue — Living Companion", tag:"Prediction tracker · language tethers", ver:"v2.1", cadence:"Updated as predictions test", src:"First_Hybrid_Tongue_Companion.html"},
+  {id:"texas", icon:"★", title:"Texas Standing", tag:"TXSE · HB 1056 · home-state tethers", ver:"v2.1", cadence:"Updated on milestones", src:"Texas_Standing_Public.html"},
+  {id:"convergence", icon:"◭", title:"The Iceberg × The Hybrid Tongue", tag:"Surface · waterline · depths — the Comprehension Gap Meter (free instrument)", ver:"v1.3.1", cadence:"Updated as the gauge fills", src:"Iceberg_x_HybridTongue_Convergence_classical_v1.html"}
+];
+/* ================================================================================================ */
+const rail=document.getElementById('rail'),viewer=document.getElementById('viewer'),
+      vTitle=document.getElementById('viewerTitle'),vStatus=document.getElementById('viewerStatus');
+let current=null;
+DASHBOARDS.forEach(d=>{
+  const t=document.createElement('div');t.className='tile';t.id='tile-'+d.id;
+  t.innerHTML=`<div class="thumb">${d.icon}</div><div class="meta"><span class="ver">${d.ver}</span><h3>${d.title}</h3><div class="tag">${d.tag}</div></div>`;
+  t.tabIndex=0;t.setAttribute('role','button');t.setAttribute('aria-label','Load '+d.title);
+  t.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();load(d)}};
+  t.onclick=()=>load(d);rail.appendChild(t);
+});
+function load(d){
+  current=d;
+  document.querySelectorAll('.tile').forEach(x=>x.classList.remove('active'));
+  document.getElementById('tile-'+d.id).classList.add('active');
+  vTitle.childNodes[0].nodeValue=d.title+' ';
+  if(d.src){vStatus.style.display='inline-block';viewer.innerHTML=`<iframe src="${d.src}" title="${d.title}"></iframe>`;
+    const f=viewer.querySelector('iframe');f.onload=syncMirror;}
+  else{vStatus.style.display='none';viewer.innerHTML=`<div class="placeholder"><div class="big">${d.icon}</div><p><strong>${d.title}</strong> — instrument in final calibration. ${d.cadence}. Members are notified when it goes live.</p></div>`;}
+}
+/* one switch rules both sides of the glass: hub state propagates into the embedded instrument */
+function syncMirror(){
+  const f=viewer.querySelector('iframe'); if(!f)return;
+  try{
+    const b=f.contentDocument.body;
+    document.body.classList.contains('mirror')?b.classList.add('mirror'):b.classList.remove('mirror');
+    const btn=f.contentDocument.getElementById('mirrorBtn'); if(btn)btn.style.display='none';
+  }catch(e){/* cross-origin standalone use — instrument keeps its own button */}
+}
+function expandViewer(){
+  if(!current){load(DASHBOARDS.find(d=>d.src)||DASHBOARDS[0]);}
+  const el=viewer.querySelector('iframe')||viewer;
+  if(el.requestFullscreen)el.requestFullscreen(); else if(el.webkitRequestFullscreen)el.webkitRequestFullscreen();
+}
+function openTab(){
+  if(!current){load(DASHBOARDS.find(d=>d.src)||DASHBOARDS[0]);}
+  if(current&&current.src){window.open(current.src,'_blank');}
+  else{viewer.innerHTML=`<div class="placeholder"><div class="big">◐</div><p>This instrument is still in calibration — nothing to open yet. Pick a LIVE tile from the rail.</p></div>`;}
+}
+function crossMirror(){document.body.classList.toggle('mirror');document.getElementById('mirrorBtn').textContent=document.body.classList.contains('mirror')?'⇄ Surface Side':'⇄ Mirror Side — depth reads';syncMirror();}
+/* v2 WATER: risers · living waterline · rings · floaters — visible BOTH sides (currents mirror-only) */
+const cv=document.getElementById('perc'),cx=cv.getContext('2d');const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+function sizeCv(){cv.width=innerWidth;cv.height=innerHeight}sizeCv();addEventListener('resize',sizeCv);
+const LINE=0.11;let wt=0;
+const currents=Array.from({length:6},()=>({y:.55+Math.random()*.4,x:Math.random(),sp:.0004+Math.random()*.0008,len:.08+Math.random()*.14,o:.05+Math.random()*.07}));
+function spawnB(){return{x:Math.random(),y:1+Math.random()*.4,r:1.5+Math.random()*3.6,sp:.0006+Math.random()*.0016,w:Math.random()*6.28}}
+const risers=Array.from({length:22},()=>{const b=spawnB();b.y=Math.random()*1.2+LINE;return b});
+const rings=[],floaters=[];
+function lineY(x){return (LINE+Math.sin(x*.004+wt*.008)*.004+Math.sin(x*.0013-wt*.005)*.003)*cv.height}
+(function tick(){
+wt++;cx.clearRect(0,0,cv.width,cv.height);
+if(RM){requestAnimationFrame(tick);return}
+const mir=document.body.classList.contains('mirror');
+const orb=mir?'240,150,70':'150,95,15';
+const aB=mir?0.09:0.20, lineA=mir?'rgba(216,228,238,.13)':'rgba(20,40,60,.38)';
+if(mir){currents.forEach(cu=>{cu.x+=cu.sp;if(cu.x>1+cu.len)cu.x=-cu.len;
+const g=cx.createLinearGradient((cu.x-cu.len)*cv.width,0,cu.x*cv.width,0);
+g.addColorStop(0,'rgba(79,163,224,0)');g.addColorStop(.5,'rgba(79,163,224,'+cu.o+')');g.addColorStop(1,'rgba(79,163,224,0)');
+cx.strokeStyle=g;cx.lineWidth=1.5;cx.beginPath();cx.moveTo((cu.x-cu.len)*cv.width,cu.y*cv.height);cx.lineTo(cu.x*cv.width,cu.y*cv.height);cx.stroke();});}
+cx.beginPath();for(let x=0;x<=cv.width;x+=8){const y=lineY(x);x===0?cx.moveTo(x,y):cx.lineTo(x,y)}
+cx.strokeStyle=lineA;cx.lineWidth=1.2;cx.stroke();
+risers.forEach((b,i)=>{b.y-=b.sp;b.w+=.02;
+const x=(b.x+Math.sin(b.w)*.006)*cv.width,y=b.y*cv.height,ly=lineY(x);
+if(mir||y<=ly+30){cx.beginPath();cx.arc(x,y,b.r,0,6.28);cx.fillStyle='rgba('+orb+','+(aB+aB*Math.sin(b.w))+')';cx.fill()}
+if(y<=ly){rings.push({x:x,r:b.r,o:mir?0.38:0.55});
+floaters.push({x:x,y:ly,r:Math.max(1.2,b.r*.8),vy:-(0.10+Math.random()*.12),sw:.9+Math.random()*1.4,w:Math.random()*6.28,o:mir?0.45:0.6});
+risers[i]=spawnB();}});
+for(let i=rings.length-1;i>=0;i--){const r=rings[i];r.r+=.6;r.o-=.006;
+if(r.o<=0){rings.splice(i,1);continue}
+cx.beginPath();for(let a=0;a<=32;a++){const px2=r.x+Math.cos(a/32*6.28)*r.r*2.1,py=lineY(px2)+Math.sin(a/32*6.28)*r.r*.55;a===0?cx.moveTo(px2,py):cx.lineTo(px2,py)}
+cx.strokeStyle='rgba('+orb+','+r.o+')';cx.lineWidth=1;cx.stroke();}
+for(let i=floaters.length-1;i>=0;i--){const f=floaters[i];f.w+=.015;f.y+=f.vy;f.x+=Math.sin(f.w)*f.sw;f.o-=.0022;
+if(f.o<=0||f.y<-10){floaters.splice(i,1);continue}
+cx.beginPath();cx.arc(f.x,f.y,f.r,0,6.28);cx.fillStyle='rgba('+orb+','+f.o+')';cx.fill();}
+requestAnimationFrame(tick);})();
+/* auto-load the first live instrument so the viewer is never empty */
+load(DASHBOARDS.find(d=>d.src)||DASHBOARDS[0]);
+</script>
+<script data-goatcounter="https://still-night-9b61.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+</html>
